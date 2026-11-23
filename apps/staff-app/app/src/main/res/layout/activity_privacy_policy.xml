@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_screen">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardPrivacyHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/surface_dark_elevated"
+        app:strokeWidth="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:paddingHorizontal="16dp">
+
+            <ImageButton
+                android:id="@+id/btnBackPrivacy"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/on_surface_dark"
+                android:contentDescription="رجوع" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="🛡️ سياسة الخصوصية وحماية البيانات"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/cardPrivacyHeader"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Card: Overview -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#330D9488"
+                app:cardBackgroundColor="@color/surface_dark_elevated"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📋 مقدمة والتزام بالخصوصية"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="نحن في تطبيق إدارة العيادات الطبية (Medical Clinic App) نلتزم التزاماً كاملاً بحماية خصوصية وأمان بيانات الكادر الطبي (الأطباء والسكرتارية) والمراجعين، وذلك وفقاً لأعلى معايير الأمان ومتطلبات وسياسات متجر Google Play."
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="4dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card: Collected Data -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#1F000000"
+                app:cardBackgroundColor="@color/surface_dark_elevated"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔍 البيانات التي نقوم بجمعها"
+                        android:textColor="@color/on_surface_dark"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="• الاسم الرباعي واللقب المهني الطبي.\n• رقم الهاتف لتسجيل الدخول والتحقق والتواصل.\n• البريد الإلكتروني (عند تسجيل الدخول بحساب Google).\n• بيانات العيادة أو المركز الطبي (الاسم، المحافظة، العنوان، ورابط الموقع الجغرافي على خرائط Google).\n• التخصص الطبي وسنوات الخبرة ورسوم الكشف التقديرية.\n• مواعيد العيادة وسجلات طابور الكشف لخدمة المرضى."
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="5dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card: Data Purpose -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#1F000000"
+                app:cardBackgroundColor="@color/surface_dark_elevated"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎯 أغراض استخدام البيانات"
+                        android:textColor="@color/on_surface_dark"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="• تنظيم وإدارة طوابير كشف المرضى بالعيادة.\n• التنسيق بين الطبيب وسكرتيرة العيادة ومتابعة المواعيد.\n• مساعدة المرضى في الوصول إلى موقع العيادة الجغرافي.\n• إرسال تنبيهات المواعيد وتحديثات النظام.\n• لا نقوم أبداً ببيع أو مشاركة بياناتك مع أي طرف ثالث لأغراض إعلانية."
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="5dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card: Account & Data Deletion -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#4DDC2626"
+                app:cardBackgroundColor="@color/surface_dark_elevated"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🗑️ سياسة حذف الحساب والبيانات (Google Play Requirement)"
+                        android:textColor="@color/brand_danger"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="يحق لك في أي وقت حذف حسابك وبياناتك الشخصية والمهنية بالكامل من خوادمنا. يمكنك تنفيذ ذلك مباشرة عبر خيار (حذف الحساب والبيانات) المتوفر في صفحة ملفك الشخصي داخل التطبيق، أو عبر مراسلتنا لحذف سجلك نهائياً."
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="4dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Button: Open Web Policy -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpenWebPrivacy"
+                style="@style/Widget.MedicalClinicStaff.PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:text="🌐 فتح صفحة الخصوصية الرسمية على الويب"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medical Clinic Staff App • الإصدار 1.0.0\nجميع الحقوق محفوظة © 2026"
+                android:textColor="@color/on_surface_dark_tertiary"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

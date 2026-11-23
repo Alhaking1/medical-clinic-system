@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_dialog">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏥 إنشاء عيادة جديدة"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="أدخل بيانات عيادتك أو مركزك الطبي لإضافته واختياره فوراً"
+            android:textColor="@color/on_surface_dark_tertiary"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Clinic Name -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNewClinicName"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="اسم العيادة أو المركز الطبي *"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNewClinicName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="40"
+                android:textColor="@color/on_surface_dark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Governorate Spinner / Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="المحافظة *"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <Spinner
+            android:id="@+id/spNewClinicGov"
+            style="@style/StaffSpinner.Dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Address -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNewClinicAddress"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="العنوان / الشارع / الحي (اختياري)"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNewClinicAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="80"
+                android:textColor="@color/on_surface_dark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Phone -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNewClinicPhone"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="هاتف العيادة أو الواتساب (اختياري)"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNewClinicPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:maxLength="9"
+                android:textColor="@color/on_surface_dark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Google Maps Location Link -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNewClinicMapsUrl"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="رابط موقع العيادة على خرائط جوجل (اختياري)"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNewClinicMapsUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:maxLength="250"
+                android:textColor="@color/on_surface_dark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Current Location GPS Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPickCurrentLocation"
+            style="@style/Widget.MedicalClinicStaff.SecondaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="📍 تحديد موقع العيادة الحالي عبر GPS"
+            android:textSize="13sp"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="18dp" />
+
+        <!-- Submit Button -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmitCreateClinic"
+                style="@style/Widget.MedicalClinicStaff.PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:text="حفظ وإنشاء العيادة 🏥" />
+
+            <ProgressBar
+                android:id="@+id/pbCreateClinic"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:indeterminateTint="@color/white" />
+        </FrameLayout>
+
+    </LinearLayout>
+</ScrollView>

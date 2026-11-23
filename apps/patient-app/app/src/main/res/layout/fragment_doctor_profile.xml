@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_dark"
+    android:fillViewport="true"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Banner -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bannerPending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/banner_warning_bg"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progressPending"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:indeterminateTint="#B45309"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvPendingTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="حسابك قيد المراجعة"
+                            android:textColor="@color/banner_warning_text"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPendingHint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="سيتم إشعارك عند الاعتماد"
+                            android:textColor="@color/banner_warning_hint"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCompleteProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:text="إكمال البيانات الآن"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:cornerRadius="10dp"
+                    app:backgroundTint="@color/banner_warning_hint" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- العنوان -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الملف الشخصي"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- بيانات المستخدم -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_glass_card"
+            android:padding="20dp">
+
+            <TextView android:id="@+id/tvName"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/on_surface_dark" android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView android:id="@+id/tvSpecialty"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/brand_primary" android:textSize="14sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView android:id="@+id/tvEmail"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/on_surface_dark_secondary" android:textSize="13sp"
+                android:layout_marginTop="12dp" />
+
+            <TextView android:id="@+id/tvPhone"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/on_surface_dark_secondary" android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView android:id="@+id/tvClinic"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/on_surface_dark_secondary" android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <Space android:layout_width="match_parent" android:layout_height="32dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="تسجيل الخروج"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/brand_danger" />
+
+    </LinearLayout>
+</ScrollView>

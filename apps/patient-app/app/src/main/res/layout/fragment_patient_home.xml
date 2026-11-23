@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_dark">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- 1. الترويسة العلوية المتدرجة (Gradient Teal Header) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_header_gradient_teal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="24dp"
+                    android:paddingBottom="36dp">
+
+                    <!-- الصف العلوي: بيانات المستخدم والأزرار التفاعلية -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- أفاتار المستخدم بحلقة بيضاء أنيقة -->
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_avatar_doctor_ring">
+
+                            <ImageView
+                                android:id="@+id/ivPatientAvatar"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/ic_tabeebak_logo"
+                                android:scaleType="centerInside"
+                                android:contentDescription="صورة المريض" />
+                        </FrameLayout>
+
+                        <!-- التحية واسم المريض في سطر واحد مرتب وأنيق -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp">
+
+                            <TextView
+                                android:id="@+id/tvWelcomeGreeting"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="أهلاً بك يا عبود • نتمنى لك يوماً صحياً ✨"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13.5sp"
+                                android:textStyle="bold"
+                                android:singleLine="true"
+                                android:ellipsize="marquee"
+                                android:marqueeRepeatLimit="marquee_forever" />
+
+                            <TextView
+                                android:id="@+id/tvPatientName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <!-- زر تبديل الوضع الليلي والنهاري الفوري -->
+                        <FrameLayout
+                            android:id="@+id/btnHeaderThemeToggle"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_circle_primary"
+                            android:backgroundTint="#33FFFFFF"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <TextView
+                                android:id="@+id/tvHeaderThemeIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="🌙"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <!-- زر المحادثات المباشرة -->
+                        <FrameLayout
+                            android:id="@+id/btnHeaderChat"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_circle_primary"
+                            android:backgroundTint="#33FFFFFF"
+                            android:clickable="true"
+                            android:focusable="true">
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_chat"
+                                app:tint="#FFFFFF"
+                                android:contentDescription="المحادثات" />
+
+                            <TextView
+                                android:id="@+id/tvHeaderChatBadge"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="top|end"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="2dp"
+                                android:background="@drawable/bg_badge_red_circle"
+                                android:textColor="#FFFFFF"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <!-- زر التنبيهات والإشعارات -->
+                        <FrameLayout
+                            android:id="@+id/btnNotifications"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_circle_primary"
+                            android:backgroundTint="#33FFFFFF"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_bell_white"
+                                android:contentDescription="التنبيهات" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <!-- شريط المحفظة والرصيد الخاص بالمريض -->
+                    <LinearLayout
+                        android:id="@+id/layoutPatientWalletBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_wallet_pill_luxury"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp"
+                        android:layout_marginTop="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💳 رصيد محفظتي:"
+                            android:textColor="#CCFBF1"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/tvHomePatientBalance"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0.00 ر.ي"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:id="@+id/btnHomeRechargeWallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_green_soft"
+                            android:backgroundTint="#33FFFFFF"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="سجل المحفظة ❯"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:singleLine="true" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- 2. شريط البحث العائم (Floating Card Overlapping Header) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="-24dp"
+                app:cardCornerRadius="100dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/surface_dark_elevated">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@android:drawable/ic_menu_search"
+                        app:tint="@color/brand_primary_light" />
+
+                    <EditText
+                        android:id="@+id/etSearchHome"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="ابحث عن طبيب، مستشفى، أو تخصص..."
+                        android:textColorHint="@color/on_surface_dark_disabled"
+                        android:textColor="@color/on_surface_dark"
+                        android:textSize="13sp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 4. بنر العروض الحصرية الفخم (Offers Banner) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardExclusiveOffers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_offers_teal"
+                    android:padding="18dp">
+
+                    <!-- شارة الخصم -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_tab_pill_active"
+                            android:backgroundTint="#F59E0B"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:text="خصم حتى 40% 🔥"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="عروض وباقات الفحوصات الطبية"
+                                android:textColor="#FFFFFF"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="وفّر 5% إلى 40% على الفحوصات والكشوفات"
+                                android:textColor="#CCFBF1"
+                                android:textSize="12sp"
+                                android:layout_marginTop="3dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle_primary"
+                            android:backgroundTint="#FFFFFF"
+                            android:gravity="center"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:text="اعرض الآن ❯"
+                            android:textColor="#0F766E"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 5. فلتر المحافظات اليمنية السريع (Governorate Chips Row) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="اختر محافظتك 📍"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvViewAllCities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عرض الكل ❯"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="6dp" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupCities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipAll"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:checked="true"
+                        android:text="الكل" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipAden"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="عدن" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTaiz"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="تعز" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipSanaa"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="صنعاء" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipHadramout"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="الحديدة" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipIbb"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="إب" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <!-- 6. قسم المستشفيات والمراكز الطبية (Hospitals Section) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="المستشفيات والمراكز الطبية 🏥"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvViewAllHospitals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عرض الكل ❯"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="4dp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHospitals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:clipToPadding="false" />
+
+            <!-- 7. قسم التخصص الطبي بأيقونات الباستيل الناعمة (Specialties Section) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="التخصص الطبي 🩺"
+                        android:textColor="@color/on_surface_dark"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="عرض الكل ❯"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                </LinearLayout>
+
+                
+                <!-- شريط التخصصات البصرية الكبيرة السريعة والقابلة للنقر المباشر -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:scrollbars="none"
+                    android:clipToPadding="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- الكل -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryAll"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecAll"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_specialty_active">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🌟"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecAll"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="الكل"
+                                android:textColor="@color/brand_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- باطنية -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryInternal"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecInternal"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_teal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🩺"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecInternal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="باطنية"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- أطفال -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryPediatric"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecPediatric"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_amber">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="👶"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecPediatric"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="أطفال"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- قلب -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryCardio"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecCardio"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_pink">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="❤️"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecCardio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="قلب"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- عظام -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryOrtho"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecOrtho"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_cyan">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🦴"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecOrtho"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="عظام"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- عيون -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryOphthal"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecOphthal"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_teal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="👁️"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecOphthal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="عيون"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- جلدية -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryDerma"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecDerma"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_purple">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="✨"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecDerma"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="جلدية"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- نساء وتوليد -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryGyne"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecGyne"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_pink">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🌸"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecGyne"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="نساء وولادة"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- أسنان -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryDental"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecDental"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_cyan">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🦷"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecDental"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="أسنان"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- مخ وأعصاب -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryNeuro"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecNeuro"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_purple">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🧠"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecNeuro"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="مخ وأعصاب"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- أنف وأذن وحنجرة -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryENT"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecENT"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_amber">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="👂"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecENT"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="أنف وأذن"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- مسالك بولية -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryUrology"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecUrology"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_teal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="💧"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecUrology"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="مسالك بولية"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- نفسية -->
+                        <LinearLayout
+                            android:id="@+id/specCategoryPsych"
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:layout_marginEnd="12dp">
+
+                            <FrameLayout
+                                android:id="@+id/frameSpecPsych"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/bg_circle_pastel_amber">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🌱"
+                                    android:textSize="26sp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSpecPsych"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="نفسية"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- 8. قسم الأطباء المتميزين المتاحين للحجز (Doctors Section) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="أطباء متاحون اليوم 👨‍⚕️"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvViewAllDoctors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عرض الكل ❯"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="4dp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDoctors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

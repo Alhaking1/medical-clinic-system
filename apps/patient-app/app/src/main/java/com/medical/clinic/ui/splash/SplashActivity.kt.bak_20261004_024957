@@ -1,0 +1,24 @@
+﻿package com.medical.clinic.ui.splash
+
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
+import com.medical.clinic.ui.auth.LoginActivity
+import com.medical.clinic.ui.main.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class SplashActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(com.medical.clinic.R.layout.activity_splash)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }, 1500)
+    }
+}

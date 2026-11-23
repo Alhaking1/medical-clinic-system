@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- لا نُخزّن التوكنات في الـ backup -->
+    <exclude domain="sharedpref" path="secure_prefs.xml" />
+    <exclude domain="sharedpref" path="auth_prefs.xml" />
+    <exclude domain="sharedpref" path="medical_staff_session.xml" />
+</full-backup-content>

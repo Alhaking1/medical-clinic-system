@@ -1,0 +1,34 @@
+# DATABASE ROW COUNTS AUDIT
+
+| Table Name | Row Count |
+| :--- | :--- |
+| admins | 1 |
+| appointment_reviews | 0 |
+| appointments | 0 |
+| chat_conversations | 0 |
+| chat_messages | 0 |
+| clinics | 11 |
+| doctor_clinics | 8 |
+| doctor_commission_history | 0 |
+| doctor_leaves | 0 |
+| doctor_periods | 216 |
+| doctor_schedules | 108 |
+| doctors | 9 |
+| medical_records | 0 |
+| notifications | 1 |
+| offer_images | 0 |
+| offers | 0 |
+| otp_codes | 20 |
+| patients | 3 |
+| payments | 0 |
+| queue | 0 |
+| registration_requests | 26 |
+| secretaries | 1 |
+| secretaries_backup | 7 |
+| secretary_delegations | 0 |
+| secretary_doctors | 0 |
+| settings | 8 |
+| slots | 756 |
+| system_settings | 5 |
+| wallet_deposit_requests | 1 |
+| wallet_transactions | 1 |

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.hardware.nfc.hce" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".MedicalClinicApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MedicalClinic"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="34">
+
+        <receiver
+            android:name=".utils.NotificationAlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".aura.AuraActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MedicalClinic"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MedicalClinic.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.auth.RoleSelectionActivity" android:exported="false" /><activity android:name=".ui.auth.GuestLoginActivity" android:exported="false" /><activity android:name=".ui.auth.LoginActivity" android:exported="false" />
+        <activity android:name=".ui.auth.PendingApprovalActivity" android:exported="false" /><activity android:name=".ui.auth.CompleteDoctorProfileActivity" android:exported="false" /><activity android:name=".ui.auth.CompleteSecretaryProfileActivity" android:exported="false" /><activity android:name=".ui.auth.ChangePasswordActivity" android:exported="false" /><activity android:name=".ui.auth.OtpActivity" android:exported="false" /><activity android:name=".ui.auth.ForgotPasswordActivity" android:exported="false" /><activity android:name=".ui.auth.RecoveryStatusActivity" android:exported="false" /><activity android:name=".ui.auth.ResetPasswordActivity" android:exported="false" /><activity android:name=".ui.auth.VerifyOldPasswordActivity" android:exported="false" />
+        <activity android:name=".ui.auth.RegisterPatientActivity" android:exported="false" />
+        <activity android:name=".ui.patient.CompletePatientProfileActivity" android:exported="false" />
+        <activity android:name=".ui.main.MainActivity" android:exported="false" />
+        <activity android:name=".ui.patient.HospitalDetailsActivity" android:exported="false" />
+        <activity android:name=".ui.patient.DoctorDetailsActivity" android:exported="false" />
+        <activity android:name=".ui.patient.OffersActivity" android:exported="false" />
+        <activity
+            android:name=".ui.chat.ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.chat.PatientConversationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.assistant.ClinicalAssistantActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <receiver
+            android:name=".utils.AppointmentReminderReceiver"
+            android:exported="false" />
+
+        <!-- NFC Host Card Emulation for Tap-to-Check-In -->
+        <service
+            android:name=".nfc.PatientHceService"
+            android:exported="true"
+            android:permission="android.permission.BIND_NFC_SERVICE">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.nfc.cardemulation.host_apdu_service"
+                android:resource="@xml/apdu_service" />
+        </service>
+
+    </application>
+</manifest>

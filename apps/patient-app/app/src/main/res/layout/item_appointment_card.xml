@@ -1,0 +1,318 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="1.2dp"
+    app:strokeColor="@color/brand_stroke_alpha"
+    app:cardBackgroundColor="@color/surface_dark_elevated">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- سطر الشارات العلوية والحالة -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- شارة الحالة الملونة (Status Pill) -->
+            <TextView
+                android:id="@+id/tvApptStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_status_confirmed"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="مؤكدة"
+                android:textColor="@color/brand_primary_light"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- شارة الحجز الذهبي إن وجد -->
+            <TextView
+                android:id="@+id/tvApptGoldenBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tab_pill_active"
+                android:backgroundTint="@color/banner_warning_bg"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="👑 حجز ذهبي"
+                android:textColor="@color/banner_warning_text"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="6dp"
+                android:visibility="gone" />
+
+            <!-- رقم الدور / المقعد -->
+            <TextView
+                android:id="@+id/tvApptQueueNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tab_pill_active"
+                android:backgroundTint="#E6F4F1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="الدور #3"
+                android:textColor="@color/brand_primary"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- بيانات الطبيب والعيادة مع الأفاتار الدائري -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <!-- أفاتار الطبيب بحلقة بيضاء أنيقة -->
+            <FrameLayout
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_avatar_doctor_ring">
+
+                <TextView
+                    android:id="@+id/tvApptDoctorEmoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="👨‍⚕️"
+                    android:textSize="28sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivApptDoctorAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
+
+                <TextView
+                    android:id="@+id/tvApptDoctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="د. أحمد محمد السقاف"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptSpecialty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="استشاري أمراض القلب"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp" />
+
+                <!-- اسم المستشفى مع أيقونة المستشفى الصغيرة -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="3dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏥"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvApptHospital"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="مستشفى السلام"
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- فاصل منقط أنيق (Dashed Divider) -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/divider_dashed" />
+
+        <!-- شبكة الموعد (اليوم، التاريخ، الوقت) بالأيقونات الرمادية والنصوص الواضحة -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/surface_dark"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🗓️"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvApptTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="السبت 2026/10/14 | 04:00 مساءً"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- أزرار الإجراءات المتناسقة (Paired Buttons) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <!-- زر موقع العيادة (Outline Teal Button) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClinicMap"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="موقع العيادة"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/brand_primary"
+                app:cornerRadius="12dp"
+                app:strokeColor="#0A5C5F"
+                app:strokeWidth="1.2dp"
+                app:icon="@drawable/ic_location_pin"
+                app:iconTint="#0A5C5F"
+                app:iconSize="16dp" />
+
+            <!-- زر تذكرة الحضور (Filled Deep Teal Button) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQrCode"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="تذكرة الحضور"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="12dp"
+                app:backgroundTint="#0A5C5F"
+                app:icon="@drawable/ic_ticket_qr"
+                app:iconTint="#FFFFFF"
+                app:iconSize="16dp" />
+        </LinearLayout>
+
+        <!-- زر أنا في العيادة (يظهر فقط خلال مدة الفترة المحددة) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnIAmAtClinic"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:text="🟢 أنا في العيادة الآن (تأكيد الحضور)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#059669"
+            app:icon="@drawable/ic_location_pin"
+            app:iconTint="#FFFFFF"
+            app:iconSize="18dp"
+            android:visibility="gone" />
+
+        <!-- شارة تم تأكيد الحضور بالعيادة -->
+        <TextView
+            android:id="@+id/tvAttendanceConfirmedBadge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="12dp"
+            android:background="@drawable/bg_pill_status_confirmed"
+            android:text="✅ تم تأكيد حضورك بالعيادة • بانتظار الدخول للطبيب"
+            android:textColor="#065F46"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!-- زر تقييم الزيارة بعد اكتمال الموعد -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRateAppointment"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:text="⭐ تقييم الزيارة والخدمة الطبية"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/banner_warning_hint"
+            app:cornerRadius="12dp"
+            app:strokeColor="#FCD34D"
+            app:strokeWidth="1.2dp"
+            app:backgroundTint="@color/banner_warning_bg"
+            android:visibility="gone" />
+
+        <!-- شارة تم التقييم -->
+        <TextView
+            android:id="@+id/tvReviewedBadge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="⭐ تم تقييم هذه الزيارة بنجاح • شكراً لمشاركتك"
+            android:textColor="@color/brand_primary_light"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

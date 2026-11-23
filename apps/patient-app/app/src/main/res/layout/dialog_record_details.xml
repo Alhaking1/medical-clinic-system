@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_dialog"
+    android:backgroundTint="@color/surface_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:background="@color/divider"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_tabeebak_logo"
+                android:contentDescription="Logo" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="روشتة طبية إلكترونية موثقة"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvModalRecordCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="كود التقرير: #REC-8841"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Doctor & Date -->
+        <TextView
+            android:id="@+id/tvModalRecordDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الطبيب المعالج: د. أحمد خالد الشرعبي"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvModalRecordDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تاريخ الكشف: 2026-10-12"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+
+        <!-- Diagnosis Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="التشخيص الطبي:"
+            android:textColor="@color/brand_primary_dark"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvModalDiagnosis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_field"
+            android:backgroundTint="@color/surface_dark_elevated"
+            android:padding="12dp"
+            android:text="التهاب ملتحمة حاد وحساسية موسمية مصحوبة بجفاف خفيف"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp" />
+
+        <!-- Prescription Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الأدوية والجرعات (الروشتة):"
+            android:textColor="@color/brand_primary_dark"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvModalPrescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_field"
+            android:backgroundTint="@color/surface_dark_elevated"
+            android:padding="12dp"
+            android:text="1. قطرة Systane Ultra: قطرة 3 مرات يومياً\n2. مرهم Tobradex للعين: قبل النوم لمدة 5 أيام"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp" />
+
+        <!-- Lab Tests Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الفحوصات المخبرية المطلوبة:"
+            android:textColor="@color/brand_primary_dark"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvModalLabTests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_field"
+            android:backgroundTint="@color/surface_dark_elevated"
+            android:padding="12dp"
+            android:text="لا توجد فحوصات مخبرية مطلوبة حالياً"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp" />
+
+        <!-- Notes / Instructions -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="إرشادات الطبيب:"
+            android:textColor="@color/brand_primary_dark"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvModalNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_field"
+            android:backgroundTint="@color/surface_dark_elevated"
+            android:padding="12dp"
+            android:text="تجنب فرك العين والابتعاد عن الغبار وأشعة الشمس المباشرة"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnModalClose"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="إغلاق التقرير"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/brand_primary"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView>

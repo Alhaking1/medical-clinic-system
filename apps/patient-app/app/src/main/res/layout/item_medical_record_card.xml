@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/surface_dark_elevated">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <!-- الدائرة الناعمة الملونة بنوع السجل -->
+        <FrameLayout
+            android:id="@+id/layoutRecordIconCircle"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_circle_record_rx">
+
+            <TextView
+                android:id="@+id/tvRecordIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="💊"
+                android:textSize="26sp" />
+        </FrameLayout>
+
+        <!-- بيانات السجل الطبي -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="12dp">
+
+            <!-- سطر نوع السجل وشارة الحالة -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvRecordType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="روشتة طبية"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvRecordStatusBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_status_confirmed"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="مفعل"
+                    android:textColor="@color/brand_primary_light"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- عنوان التشخيص أو الفحص -->
+            <TextView
+                android:id="@+id/tvRecordDiagnosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="تحليل دم شامل ومعاينة دورية"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="3dp" />
+
+            <!-- التاريخ واسم الطبيب -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvRecordDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2026 / 10 / 14"
+                    android:textColor="@color/on_surface_dark_secondary"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • "
+                    android:textColor="@color/on_surface_dark_secondary"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvRecordDoctor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="د. أحمد محمد السقاف"
+                    android:textColor="@color/on_surface_dark_secondary"
+                    android:textSize="11sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+
+            <!-- الوصفة الطبية المختصرة -->
+            <TextView
+                android:id="@+id/tvRecordPrescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💊 قطرة مرطبة + مضاد حيوي"
+                android:textColor="@color/brand_primary"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="2dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- سهم الانتقال للتفاصيل -->
+        <ImageView
+            android:id="@+id/btnViewRecordDetails"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_chevron_left"
+            app:tint="@color/on_surface_dark_secondary" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

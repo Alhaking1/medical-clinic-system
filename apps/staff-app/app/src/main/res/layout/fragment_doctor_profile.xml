@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_gradient_screen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="32dp">
+
+        <!-- Doctor Card Header -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="#330D9488"
+            app:cardBackgroundColor="@color/surface_dark_elevated"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="24dp">
+
+                <FrameLayout
+                    android:id="@+id/layoutAvatarContainer"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:clipChildren="false"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="44dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/brand_primary_soft">
+
+                        <ImageView
+                            android:id="@+id/ivProfileAvatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone"
+                            android:contentDescription="صورة الطبيب" />
+
+                        <TextView
+                            android:id="@+id/tvDoctorAvatarEmoji"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="👨‍⚕️"
+                            android:textSize="40sp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnChangeAvatarBadge"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="bottom|end"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="@color/brand_primary"
+                        app:cardElevation="6dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_camera"
+                            app:tint="@android:color/white"
+                            android:contentDescription="تغيير الصورة الشخصية" />
+                    </androidx.cardview.widget.CardView>
+
+                    <ProgressBar
+                        android:id="@+id/progressAvatarUpload"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        android:indeterminateTint="@color/brand_primary" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvProfileDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="د. غير محدد"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="14dp" />
+
+                <TextView
+                    android:id="@+id/tvProfileSpecialty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="طب وجراحة عامة"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/tvProfileClinic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="العيادة التخصصية"
+                    android:textColor="@color/on_surface_dark_tertiary"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Account Status Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAccountStatusDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="@color/divider"
+            app:cardBackgroundColor="@color/surface_dark_elevated"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvStatusIconDoctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏳"
+                    android:textSize="26sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:id="@+id/tvStatusTitleDoctor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="حالة الحساب: قيد المراجعة"
+                        android:textColor="@color/on_surface_dark"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvStatusSubtitleDoctor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ملفك قيد المراجعة من قبل الإدارة. يمكنك تصفح التطبيق."
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRefreshStatusDoctor"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="تحديث 🔄"
+                    android:textSize="11sp"
+                    android:paddingHorizontal="10dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Information List Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/divider"
+            app:cardBackgroundColor="@color/surface_dark_elevated"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvProfilePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="الهاتف: 770000000"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="14sp"
+                    android:paddingVertical="10dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/tvProfileEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="البريد: doctor@example.com"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="14sp"
+                    android:paddingVertical="10dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/tvProfileFee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="رسوم الكشف: 3,000 ر.ي"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="14sp"
+                    android:paddingVertical="10dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Settings Card: Direct Chat Toggle -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardDoctorChatSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="#330D9488"
+            app:cardBackgroundColor="@color/surface_dark_elevated"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="محادثات المرضى المباشرة 💬"
+                            android:textColor="@color/on_surface_dark"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDoctorChatStatusHint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="عند التعطيل، يتم توجيه رسائل واستفسارات المرضى لسكرتيرة العيادة تلقائياً."
+                            android:textColor="@color/on_surface_dark_tertiary"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchAllowDirectChat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Action Buttons -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCompleteProfileDoctor"
+            style="@style/Widget.MedicalClinicStaff.PrimaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="📝 إكمال الملف الطبي الآن"
+            android:visibility="gone"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChangePassword"
+            style="@style/Widget.MedicalClinicStaff.SecondaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="تغيير كلمة المرور"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPrivacyPolicyDoctor"
+            style="@style/Widget.MedicalClinicStaff.SecondaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="🛡️ سياسة الخصوصية وحماية البيانات"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogoutDoctor"
+            style="@style/Widget.MedicalClinicStaff.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/logout"
+            app:strokeColor="@color/brand_primary"
+            android:textColor="@color/brand_primary"
+            android:layout_marginBottom="16dp" />
+
+        <!-- خيارات إضافية — مخفية بسهم صغير عند الضغط عليه يظهر خيار حذف الحساب -->
+        <LinearLayout
+            android:id="@+id/layoutAdvancedOptionsHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tvAdvancedArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▼"
+                android:textColor="@color/on_surface_dark_tertiary"
+                android:textSize="11sp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="خيارات الحساب الإضافية"
+                android:textColor="@color/on_surface_dark_tertiary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutAdvancedOptionsContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDeleteAccountDoctor"
+                style="@style/Widget.MedicalClinicStaff.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:text="🗑️ حذف الحساب والبيانات نهائياً"
+                app:strokeColor="@color/brand_danger"
+                android:textColor="@color/brand_danger" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

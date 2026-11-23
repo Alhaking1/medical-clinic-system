@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="إضافة دواء للروشتة 💊"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/brand_primary"
+        android:layout_marginBottom="16dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMedName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:boxStrokeColor="@color/brand_primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMedName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="اسم الدواء (مثل: Amoxicillin)"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMedDosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:boxStrokeColor="@color/brand_primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMedDosage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="الجرعة (مثل: 500mg أو حبة واحدة)"
+            android:text="500mg"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMedFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:boxStrokeColor="@color/brand_primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMedFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="التكرار (مثل: مرتين يومياً)"
+            android:text="مرتين يومياً"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMedDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:boxStrokeColor="@color/brand_primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMedDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="المدة (مثل: 5 أيام أو أسبوع)"
+            android:text="5 أيام"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMedInstructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:boxStrokeColor="@color/brand_primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMedInstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="تعليمات إضافية (مثل: بعد الأكل، قبل النوم)"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- حفظ في بنك الأدوية المفضل -->
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/cbSaveToBank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="حفظ هذا الدواء في بنك أدويتي المفضلة ⭐"
+        android:textSize="13sp"
+        android:textColor="@color/on_surface_dark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelDialog"
+            style="@style/Widget.MedicalClinicStaff.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="إلغاء"
+            android:layout_marginEnd="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddMedDialog"
+            style="@style/Widget.MedicalClinicStaff.PrimaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="إضافة للقائمة" />
+    </LinearLayout>
+
+</LinearLayout>

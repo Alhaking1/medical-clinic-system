@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- خلفية أيقونة التطبيق المنحنية الأطراف (Squircle) -->
+    <path
+        android:fillColor="#F0FDFA"
+        android:strokeColor="#CCFBF1"
+        android:strokeWidth="6"
+        android:pathData="M136,36 L376,36 A100,100 0 0,1 476,136 L476,376 A100,100 0 0,1 376,476 L136,476 A100,100 0 0,1 36,376 L36,136 A100,100 0 0,1 136,36 Z" />
+
+    <!-- درع الحماية والموثوقية الطبية (Shield) -->
+    <path
+        android:strokeWidth="16"
+        android:strokeColor="#0D9488"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M256,95 C335,95 385,125 385,180 C385,295 295,380 256,415 C217,380 127,295 127,180 C127,125 177,95 256,95 Z" />
+
+    <!-- سماعة الطبيب (Stethoscope) -->
+    <path
+        android:strokeWidth="15"
+        android:strokeColor="#0D9488"
+        android:strokeLineCap="round"
+        android:pathData="M195,160 C180,210 210,260 256,270" />
+
+    <!-- رأس سماعة الطبيب -->
+    <path
+        android:fillColor="#0D9488"
+        android:pathData="M195,160m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
+
+    <!-- قلب الرعاية والاهتمام (Heart) -->
+    <path
+        android:strokeWidth="14"
+        android:strokeColor="#10B981"
+        android:strokeLineJoin="round"
+        android:pathData="M256,245 C240,220 205,210 190,235 C175,260 210,295 256,335 C302,295 337,260 322,235 C307,210 272,220 256,245 Z" />
+
+    <!-- خط نبضات القلب (ECG / Pulse) -->
+    <path
+        android:strokeWidth="14"
+        android:strokeColor="#0D9488"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M235,345 L255,345 L268,315 L285,375 L298,335 L310,350 L345,350" />
+</vector>

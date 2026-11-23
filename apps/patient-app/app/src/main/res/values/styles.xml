@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Spinner Style — واضح -->
+    <style name="AppSpinner" parent="Widget.AppCompat.Spinner.Underlined">
+        <item name="android:textColor">@color/on_surface_dark</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:background">@drawable/bg_input_field</item>
+    </style>
+
+    <style name="AppSpinner.Dropdown" parent="AppSpinner">
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:popupBackground">@color/surface_dark_elevated</item>
+    </style>
+
+    <!-- Bottom Navigation Custom Styles -->
+    <style name="Widget.MedicalClinic.BottomNav.ActiveText" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="Widget.MedicalClinic.BottomNav.InactiveText" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Widget.MedicalClinic.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">64dp</item>
+        <item name="android:height">34dp</item>
+        <item name="android:color">@color/bottom_nav_indicator_selector</item>
+        <item name="marginHorizontal">4dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MedicalClinic.Pill</item>
+    </style>
+
+    <style name="ShapeAppearance.MedicalClinic.Pill" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerSize">17dp</item>
+    </style>
+
+    <!-- Activity Window Animations -->
+    <style name="Animation.MedicalClinic.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_pop_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_pop_exit</item>
+    </style>
+
+</resources>

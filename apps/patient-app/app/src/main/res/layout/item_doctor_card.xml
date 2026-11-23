@@ -1,0 +1,151 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="1.2dp"
+    app:strokeColor="@color/brand_stroke_alpha"
+    app:cardBackgroundColor="@color/surface_dark_elevated">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_card_3d_glass"
+        android:padding="16dp">
+
+        <!-- صورة الطبيب / الأيقونة مع إطار راقي بحلقة بيضاء -->
+        <FrameLayout
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_avatar_doctor_ring">
+
+            <TextView
+                android:id="@+id/tvDoctorEmoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="👨‍⚕️"
+                android:textSize="28sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivDoctorAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full" />
+        </FrameLayout>
+
+        <!-- بيانات الطبيب -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp">
+
+            <TextView
+                android:id="@+id/tvDoctorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="د. أحمد خالد"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDoctorSpecialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="استشاري طب وجراحة العيون"
+                android:textColor="@color/brand_primary"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvDoctorClinic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مستشفى الأمل - صنعاء"
+                    android:textColor="@color/on_surface_dark_secondary"
+                    android:textSize="12.5sp" />
+
+                <TextView
+                    android:id="@+id/tvDoctorRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • ⭐ 4.9"
+                    android:textColor="#D4AF37"
+                    android:textSize="12.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDoctorSeats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🟢 متبقي 8 مقاعد متاحة"
+                android:textColor="@color/brand_primary_light"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_pill_status_confirmed"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+
+        <!-- السعر وزر الحجز -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tvDoctorFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5,000 ر.ي"
+                android:textColor="#0F766E"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_badge_green_soft"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookDoctor"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:text="حجز كشف ❯"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="16dp"
+                app:elevation="2dp"
+                app:backgroundTint="#0F766E"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_dark">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface_dark_elevated"
+        app:titleTextColor="@color/on_surface_dark"
+        app:title="حجز موعد كشف طبي"
+        app:navigationIcon="@drawable/ic_arrow_back" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- بطاقة الطبيب الرئيسية -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface_dark_elevated">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="64dp"
+                            android:layout_height="64dp">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:cardBackgroundColor="@color/brand_primary_soft">
+
+                                <ImageView
+                                    android:id="@+id/ivBookingDoctorAvatar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:visibility="gone"
+                                    android:contentDescription="صورة الطبيب" />
+
+                                <TextView
+                                    android:id="@+id/tvBookingDoctorEmoji"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="👨‍⚕️"
+                                    android:textSize="32sp" />
+                            </androidx.cardview.widget.CardView>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp">
+
+                            <TextView
+                                android:id="@+id/tvBookingDoctorName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="د. أحمد خالد"
+                                android:textColor="@color/on_surface_dark"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvBookingDoctorSpecialty"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="استشاري طب وجراحة العيون"
+                                android:textColor="@color/on_surface_dark_secondary"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvBookingDoctorHospital"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="مستشفى الأمل - صنعاء"
+                                android:textColor="@color/on_surface_dark_tertiary"
+                                android:textSize="12sp"
+                                android:layout_marginTop="2dp" />
+
+                            <TextView
+                                android:id="@+id/tvBookingDoctorExperience"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⭐ خبرة 12 عاماً"
+                                android:textColor="@color/gold_star"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:id="@+id/tvBookingDoctorBio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="استشاري أول متخصص في التشخيص والعلاج الطبي المتقدم."
+                                android:textColor="@color/on_surface_dark_secondary"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- زر المحادثة الفورية مع الطبيب -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDoctorChat"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:text="محادثة فورية مع الطبيب / العيادة 💬"
+                android:textColor="@color/brand_primary_light"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:strokeColor="@color/brand_primary_light"
+                app:strokeWidth="1.5dp"
+                app:cornerRadius="12dp"
+                app:backgroundTint="#F0FDFA"
+                app:icon="@drawable/ic_chat"
+                app:iconTint="#0D9488"
+                app:iconGravity="textStart" />
+
+            <!-- فترات دوام الطبيب وتاريخ الحجز وسعة المقاعد -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="تاريخ الحجز وفترات الدوام المتاحة"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- شريط اختيار التاريخ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/surface_deep">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_nav_calendar"
+                            app:tint="@color/brand_primary_light"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvSelectedBookingDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="اليوم"
+                            android:textColor="@color/on_surface_dark"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnChangeBookingDate"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:text="📅 اختيار تاريخ"
+                            android:textSize="12sp"
+                            android:textColor="@color/brand_primary_light"
+                            app:strokeColor="@color/brand_primary_light"
+                            app:cornerRadius="10dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnNextBookingDate"
+                            
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:text="اليوم التالي ⏭️"
+                            android:textSize="12sp"
+                            android:textColor="@color/brand_primary_light"
+                            app:backgroundTint="#CCFBF1"
+                            app:cornerRadius="10dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- مؤشر التحميل -->
+            <ProgressBar
+                android:id="@+id/pbLoadingPeriods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+
+            <!-- الفترات المتاحة -->
+            <RadioGroup
+                android:id="@+id/rgPeriods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical" />
+
+            <!-- بطاقة التنبيه عند عدم وجود فترات -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layoutNoPeriodsForDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/banner_warning_bg"
+                app:strokeColor="#FCD34D"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📅⚠️"
+                        android:textSize="26sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="لا توجد فترات أو مواعيد في هذا التاريخ"
+                        android:textColor="@color/banner_warning_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="لم تتم إضافة فترات دوام للطبيب في هذا اليوم، أو أن جميع فترات اليوم قد انتهت. يمكنك اختيار تاريخ يوم تالٍ للحجز فيه."
+                        android:textColor="@color/banner_warning_hint"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEmptyNextDay"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:layout_marginTop="12dp"
+                        android:text="اختيار تاريخ يوم تالٍ للحجز ⏭️"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#D97706"
+                        app:cornerRadius="10dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- نوع الكشف -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="نوع الكشف"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/rgConsultationType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbTypeClinic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="زيارة في العيادة"
+                    android:textColor="@color/on_surface_dark" />
+
+                <RadioButton
+                    android:id="@+id/rbTypeOnline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="استشارة فيديو عن بُعد"
+                    android:textColor="@color/on_surface_dark" />
+            </RadioGroup>
+
+            <!-- طريقة الدفع وبطاقات التحفيز -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="طريقة الدفع (وفر 5% عبر التطبيق)"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- عرض الحسابات للدفع الإلكتروني المحفز -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPaymentInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/brand_secondary_soft">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="⭐ الحجز الذهبي: أسبقية الدخول بالدور + خصم 5%"
+                            android:textColor="@color/brand_secondary_dark"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#D1FAE5"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:text="📋 انقر لنسخ الرقم"
+                            android:textColor="#065F46"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvKuraimiAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="🏦 بنك الكريمي (حساب / مميز): 781238648"
+                        android:textColor="@color/on_surface_dark"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvWalletsAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="📱 المحافظ الإلكترونية (جوالي / ون كاش / فلوسك / جيب): 781238648"
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <RadioGroup
+                android:id="@+id/rgPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbPayWallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="💳 الدفع من رصيد المحفظة (خصم 5% + أسبقية المقعد الذهبي)"
+                    android:textColor="@color/brand_primary_light"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/rbPayOnline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="الدفع بالتحويل المسبق (خصم 5% + أولوية الدخول بالدور)"
+                    android:textColor="@color/on_surface_dark" />
+
+                <RadioButton
+                    android:id="@+id/rbPayCash"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="الدفع نقداً في العيادة عند الزيارة"
+                    android:textColor="@color/on_surface_dark" />
+            </RadioGroup>
+
+            <!-- تنبيه الحجز الذهبي والأولوية -->
+            <LinearLayout
+                android:id="@+id/layoutGoldenNotice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/banner_warning_bg"
+                android:padding="12dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="👑 ميزة المقاعد الأولية (الحجز الذهبي):"
+                    android:textColor="@color/banner_warning_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="عند سداد الحوالة وإدخال رقم الحوالة أدناه، سيتم منحك الأولوية للمقاعد الأولية (الحجز الذهبي) للدخول أولاً عند تأكيد ومراجعة الإدارة للدفع! وفي حال الدفع نقداً، يكون دورك حسب الترتيب المتسلسل العادي."
+                    android:textColor="@color/banner_warning_hint"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- حقل إدخال رقم الحوالة إن تم التحويل -->
+            <EditText
+                android:id="@+id/etTransactionId"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:hint="أدخل رقم الحوالة / السند لتأكيد الحجز الذهبي *"
+                android:textColorHint="@color/on_surface_dark_disabled"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="13sp"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:singleLine="true" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- شريط التأكيد السفلي -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@color/surface_dark_elevated">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="إجمالي قيمة الكشف"
+                    android:textColor="@color/on_surface_dark_tertiary"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvTotalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5,000 ر.ي"
+                    android:textColor="@color/brand_primary_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirmBooking"
+                android:layout_width="180dp"
+                android:layout_height="52dp"
+                android:text="تأكيد الحجز الفوري"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="14dp"
+                app:backgroundTint="@color/brand_primary" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

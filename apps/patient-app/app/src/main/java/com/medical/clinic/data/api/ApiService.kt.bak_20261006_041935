@@ -1,0 +1,388 @@
+package com.medical.clinic.data.api
+
+import com.medical.clinic.data.models.ApiResponse
+import com.medical.clinic.data.models.DoctorStatsResponse
+import com.medical.clinic.data.models.QueueStatsResponse
+import com.medical.clinic.data.models.QueueItem
+import com.medical.clinic.data.models.QueueListResponse
+import com.medical.clinic.data.models.QueueUpdateRequest
+import com.medical.clinic.data.models.LoginResponse
+import com.medical.clinic.data.models.User
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.PATCH
+import retrofit2.http.DELETE
+import retrofit2.http.Query
+interface ApiService {
+
+    // ═══════════════════════════════════════════
+    // Auth
+    // ═══════════════════════════════════════════
+
+    @POST("auth/login/password")
+    suspend fun loginPassword(
+        @Body body: LoginPasswordRequest
+    ): LoginResponse
+
+    @POST("google-auth/guest-login-staff")
+    suspend fun guestStaffLogin(
+        @Body body: GuestLoginRequest
+    ): LoginResponse
+
+    @POST("google-auth/google-login-staff")
+    suspend fun googleLoginStaff(
+        @Body body: GoogleLoginStaffRequest
+    ): LoginResponse
+
+    @POST("auth/set-password")
+    suspend fun setPassword(
+        @Body body: SetPasswordRequest
+    ): ApiResponse<Any>
+
+    @POST("auth/change-password")
+    suspend fun changePassword(
+        @Body body: ChangePasswordRequest
+    ): ApiResponse<Any>
+
+    // ═══════════════════════════════════════════
+    // Doctor Stats
+    // ═══════════════════════════════════════════
+
+    @GET("queue/doctor/{doctorId}/stats")
+    suspend fun getQueueStats(@Path("doctorId") doctorId: Int): QueueStatsResponse
+
+    @GET("doctors/{doctorId}/stats/today")
+    suspend fun getDoctorStatsToday(@Path("doctorId") doctorId: Int): DoctorStatsResponse
+
+    // ═══════════════════════════════════════════
+    // Queue
+    // ═══════════════════════════════════════════
+
+    @GET("queue/doctor/{doctorId}")
+    suspend fun getDoctorQueue(@Path("doctorId") doctorId: Int): QueueListResponse
+
+    @PUT("queue/{id}")
+    suspend fun updateQueueStatus(
+        @Path("id") id: Int,
+        @Body body: QueueUpdateRequest
+    ): ApiResponse<QueueItem>
+
+    // ═══════════════════════════════════════════
+    // Notifications
+    // ═══════════════════════════════════════════
+
+    @GET("notifications")
+    suspend fun getNotifications(
+        @Query("unread_only") unreadOnly: Int? = null
+    ): ApiResponse<List<NotificationItem>>
+
+    @GET("notifications/count")
+    suspend fun getNotificationsCount(): ApiResponse<NotificationCount>
+
+    @PATCH("notifications/{id}/read")
+    suspend fun markNotificationRead(@Path("id") id: Int): ApiResponse<Any>
+
+    @PATCH("notifications/read-all")
+    suspend fun markAllNotificationsRead(): ApiResponse<Any>
+
+    @GET("auth/me")
+    suspend fun getMe(): ApiResponse<User>
+
+    @POST("auth/logout")
+    suspend fun logout(): ApiResponse<Any>
+
+    // ═══════════════════════════════════════════
+    // Complete Profile
+    // ═══════════════════════════════════════════
+
+    @POST("complete/doctors/complete-profile")
+    suspend fun completeDoctorProfile(
+        @Body body: Map<String, @JvmSuppressWildcards Any>
+    ): ApiResponse<Any>
+
+    @POST("complete/secretaries/complete-profile")
+    suspend fun completeSecretaryProfile(
+        @Body body: Map<String, @JvmSuppressWildcards Any>
+    ): ApiResponse<Any>
+
+    @GET("complete/clinics/list-for-join")
+    suspend fun getClinicsForJoin(): ClinicsListResponse
+
+    // ═══════════════════════════════════════════
+    // Time + Health
+    // ═══════════════════════════════════════════
+
+    @GET("time")
+    suspend fun getTime(): ApiResponse<TimeResponse>
+
+    @GET("health")
+    suspend fun getHealth(): ApiResponse<Any>
+    // ═══════════════════════════════════════════
+    // Secretaries — Doctors Management
+    // ═══════════════════════════════════════════
+
+    @GET("secretaries/me/doctors")
+    suspend fun getMyDoctors(): ApiResponse<MyDoctorsResponse>
+
+    @POST("secretaries/me/doctors")
+    suspend fun linkDoctors(@Body body: LinkDoctorsRequest): ApiResponse<Any>
+
+    @DELETE("secretaries/me/doctors/{doctorId}")
+    suspend fun unlinkDoctor(@Path("doctorId") doctorId: Int): ApiResponse<Any>
+    // ═══════════════════════════════════════════
+    // Secretaries — Pending Doctors
+    // ═══════════════════════════════════════════
+
+    @GET("secretaries/me/pending-doctors")
+    suspend fun getPendingDoctors(): ApiResponse<PendingDoctorsResponse>
+
+    @PATCH("secretaries/me/doctors/{doctorId}/approve")
+    suspend fun approveDoctorBySecretary(@Path("doctorId") doctorId: Int): ApiResponse<Any>
+
+    @PATCH("secretaries/me/doctors/{doctorId}/reject")
+    suspend fun rejectDoctorBySecretary(
+        @Path("doctorId") doctorId: Int,
+        @Body body: RejectDoctorRequest
+    ): ApiResponse<Any>
+
+
+    // ═══════════════════════════════════════════
+    // 🆕 Periods
+    // ═══════════════════════════════════════════
+
+    @GET("periods/admin/doctor/{doctorId}")
+    suspend fun getPeriodsForDoctor(
+        @Path("doctorId") doctorId: Int
+    ): PeriodListResponse
+
+    @PATCH("periods/{id}/stop")
+    suspend fun stopPeriod(
+        @Path("id") periodId: Int,
+        @Body body: Map<String, @JvmSuppressWildcards Any> = emptyMap()
+    ): ApiResponse<Any>
+
+    @PATCH("periods/{id}/resume")
+    suspend fun resumePeriod(
+        @Path("id") periodId: Int
+    ): ApiResponse<Any>
+
+    @PATCH("periods/{id}/max-bookings")
+    suspend fun updateMaxBookings(
+        @Path("id") periodId: Int,
+        @Body body: MaxBookingsRequest
+    ): ApiResponse<Any>
+
+    // ═══════════════════════════════════════════
+    // 🆕 Schedules (Weekly Templates)
+    // ═══════════════════════════════════════════
+
+    @GET("periods/schedule/doctor/{doctorId}")
+    suspend fun getSchedulesForDoctor(
+        @Path("doctorId") doctorId: Int
+    ): ScheduleListResponse
+
+    @POST("periods/schedule")
+    suspend fun createSchedule(
+        @Body body: CreateScheduleRequest
+    ): ApiResponse<Any>
+
+    @DELETE("periods/schedule/{id}")
+    suspend fun deleteSchedule(
+        @Path("id") scheduleId: Int
+    ): ApiResponse<Any>
+
+    @POST("periods/regenerate")
+    suspend fun regeneratePeriods(
+        @Body body: GeneratePeriodsRequest
+    ): GeneratePeriodsResponse
+
+    // ═══════════════════════════════════════════
+    // 🆕 Delegations
+    // ═══════════════════════════════════════════
+
+    @POST("secretaries/me/delegations")
+    suspend fun createDelegation(
+        @Body body: CreateDelegationRequest
+    ): ApiResponse<Any>
+
+    @GET("secretaries/me/delegations")
+    suspend fun getMyDelegations(
+        @Query("status") status: String? = null,
+        @Query("direction") direction: String? = null
+    ): DelegationListResponse
+
+    @PATCH("secretaries/me/delegations/{id}/accept")
+    suspend fun acceptDelegation(
+        @Path("id") delegationId: Int,
+        @Body body: RespondDelegationRequest = RespondDelegationRequest()
+    ): ApiResponse<Any>
+
+    @PATCH("secretaries/me/delegations/{id}/reject")
+    suspend fun rejectDelegation(
+        @Path("id") delegationId: Int,
+        @Body body: RespondDelegationRequest = RespondDelegationRequest()
+    ): ApiResponse<Any>
+
+    @DELETE("secretaries/me/delegations/{id}")
+    suspend fun cancelDelegation(
+        @Path("id") delegationId: Int
+    ): ApiResponse<Any>
+
+    // ═══════════════════════════════════════════
+    // 🆕 Colleagues (السكرتيرات في نفس العيادة)
+    // ═══════════════════════════════════════════
+
+    @GET("secretaries/me/colleagues")
+    suspend fun getColleagues(): ColleaguesResponse
+}
+// ═══════════════════════════════════════════
+// Request Bodies
+// ═══════════════════════════════════════════
+
+data class LoginPasswordRequest(
+    val email: String,
+    val password: String,
+    val role: String
+)
+
+data class GuestLoginRequest(
+    val full_name: String,
+    val phone: String,
+    val role: String
+)
+
+data class GoogleLoginStaffRequest(
+    val idToken: String,
+    val role: String
+)
+
+data class SetPasswordRequest(
+    val new_password: String,
+    val current_password: String? = null
+)
+
+data class ChangePasswordRequest(
+    val current_password: String,
+    val new_password: String
+)
+// ═══════════════════════════════════════════
+// Response Bodies
+// ═══════════════════════════════════════════
+
+data class ClinicsListResponse(
+    val success: Boolean,
+    val data: List<ClinicItem>? = null
+)
+
+data class ClinicItem(
+    val id: Int,
+    val name: String,
+    val governorate: String? = null,
+    val address: String? = null,
+    val is_active: Int? = null
+)
+
+data class NotificationItem(
+    val id: Int,
+    val user_id: Int,
+    val user_type: String,
+    val title: String,
+    val body: String? = null,
+    val type: String = "info",
+    val data: String? = null,
+    val is_read: Int = 0,
+    val created_at: String? = null
+)
+
+data class NotificationCount(
+    val unread: Int = 0
+)
+
+data class TimeResponse(
+    val timestamp_utc: String,
+    val timestamp_unix: Long,
+    val timezone: String,
+    val local_iso: String,
+    val local_date: String,
+    val local_time_only: String,
+    val hijri_date: String? = null,
+    val day_of_week: String,
+    val offset: String
+)
+
+
+// ═══════════════════════════════════════════
+// Secretaries — Data Classes
+// ═══════════════════════════════════════════
+
+data class MyDoctorsResponse(
+    val all: List<DoctorItem> = emptyList(),
+    val linked: List<DoctorItem> = emptyList(),
+    val clinic_id: Int? = null
+)
+
+data class DoctorItem(
+    val id: Int,
+    val full_name: String,
+    val specialty: String? = null,
+    val phone: String? = null,
+    val avatar: String? = null,
+    val status: String? = null,
+    val is_linked: Int? = null
+)
+
+data class LinkDoctorsRequest(
+    val doctor_ids: List<Int>
+)
+
+
+// ═══════════════════════════════════════════
+// Pending Doctors — Data Classes
+// ═══════════════════════════════════════════
+
+data class PendingDoctorsResponse(
+    val data: List<PendingDoctorItem>? = null,
+    val clinic_id: Int? = null,
+    val clinic_name: String? = null
+)
+
+data class PendingDoctorItem(
+    val id: Int,
+    val full_name: String,
+    val specialty: String? = null,
+    val phone: String? = null,
+    val email: String? = null,
+    val avatar: String? = null,
+    val status: String? = null,
+    val must_complete_profile: Int? = null,
+    val clinic_name: String? = null,
+    val created_at: String? = null
+)
+
+data class RejectDoctorRequest(
+    val reason: String? = null
+)
+
+
+// ═══════════════════════════════════════════
+// Colleagues — Data Classes
+// ═══════════════════════════════════════════
+
+data class ColleaguesResponse(
+    val success: Boolean = false,
+    val data: List<Colleague> = emptyList(),
+    val clinic_id: Int? = null,
+    val message: String? = null
+)
+
+data class Colleague(
+    val id: Int,
+    val full_name: String,
+    val phone: String? = null,
+    val email: String? = null,
+    val avatar: String? = null,
+    val status: String? = null
+)

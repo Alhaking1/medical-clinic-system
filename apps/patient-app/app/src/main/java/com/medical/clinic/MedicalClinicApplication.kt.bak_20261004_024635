@@ -1,0 +1,13 @@
+﻿package com.medical.clinic
+
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class MedicalClinicApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        // يمكن إضافة Timber، Firebase، إلخ هنا لاحقاً
+    }
+}

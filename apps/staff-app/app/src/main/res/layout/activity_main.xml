@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_screen">
+
+    <!-- Top Luxury Header Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/surface_dark_elevated"
+        app:strokeWidth="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="14dp"
+            android:gravity="center_vertical">
+
+            <!-- Avatar Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/brand_primary_soft"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#330D9488">
+
+                <ImageView
+                    android:id="@+id/ivHeaderAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    android:contentDescription="صورة المستخدم" />
+
+                <TextView
+                    android:id="@+id/tvHeaderAvatarEmoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="👨‍⚕️"
+                    android:textSize="22sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp">
+
+                <TextView
+                    android:id="@+id/tvHeaderUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="د. غير محدد"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/layoutHeaderClinicPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tvHeaderClinicName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="العيادة التخصصية"
+                        android:textColor="@color/on_surface_dark_tertiary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvClinicDropdownArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" ▾"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvHeaderRoleBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:background="@drawable/bg_badge_3d_glow"
+                android:textColor="@color/brand_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="طبيب" />
+
+            <!-- زر المحادثات المباشرة مع المرضى -->
+            <FrameLayout
+                android:id="@+id/btnHeaderChat"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_primary_soft"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_chat"
+                    app:tint="@color/brand_primary"
+                    android:contentDescription="محادثات المرضى" />
+
+                <TextView
+                    android:id="@+id/tvHeaderChatBadge"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/bg_badge_red_circle"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- زر الإشعارات والتنبيهات -->
+            <FrameLayout
+                android:id="@+id/btnHeaderNotifications"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_primary_soft"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="🔔"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvHeaderNotifBadge"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/bg_badge_red_circle"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- زر تبديل الوضع الليلي والنهاري الفوري -->
+            <FrameLayout
+                android:id="@+id/btnHeaderThemeToggle"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_primary_soft"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/tvHeaderThemeIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="🌙"
+                    android:textSize="16sp" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Guest Reminder Banner -->
+    <LinearLayout
+        android:id="@+id/layoutGuestBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFBEB"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/headerBar">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⚠️ وضع تجريبي — أكمل ملفك المهني لتفعيل كافة الميزات"
+            android:textColor="@color/banner_warning_hint"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBannerCompleteProfile"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="إكمال الآن 📝"
+            android:textSize="12sp"
+            android:textColor="#D97706" />
+    </LinearLayout>
+
+    <!-- Fragment Container -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutGuestBanner"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavCard" />
+
+    <!-- 3D Floating Bottom Navigation Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="12dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/divider"
+        app:cardBackgroundColor="@color/surface_dark_elevated"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@color/transparent"
+            app:itemIconTint="@color/bottom_nav_item_selector"
+            app:itemTextColor="@color/bottom_nav_item_selector"
+            app:itemRippleColor="@color/brand_primary_soft"
+            
+            app:itemActiveIndicatorStyle="@style/Widget.MedicalClinic.BottomNav.ActiveIndicator"
+            app:itemTextAppearanceActive="@style/Widget.MedicalClinic.BottomNav.ActiveText"
+            app:itemTextAppearanceInactive="@style/Widget.MedicalClinic.BottomNav.InactiveText"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/menu_bottom_doctor" />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="12dp">
+
+    <!-- User Message Container (Aligned Right) -->
+    <LinearLayout
+        android:id="@+id/layoutUserMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="280dp"
+            android:background="@drawable/bg_pill_status_confirmed"
+            android:backgroundTint="#00897B"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUserMessageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp" />
+
+            <TextView
+                android:id="@+id/tvUserMessageTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="3dp"
+                android:textColor="#CCFBF1"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Assistant Message Container (Aligned Left) -->
+    <LinearLayout
+        android:id="@+id/layoutAssistantMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:background="@drawable/bg_circle_primary"
+            android:backgroundTint="#E0F2F1"
+            android:text="🩺"
+            android:textSize="18sp"
+            android:layout_marginEnd="8dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/bg_input_field"
+            android:padding="12dp">
+
+            <!-- Category / Triage Badge -->
+            <TextView
+                android:id="@+id/tvAssistantBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_status_upcoming"
+                android:backgroundTint="#CCFBF1"
+                android:textColor="#00695C"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Assistant Reply Text -->
+            <TextView
+                android:id="@+id/tvAssistantMessageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#1E293B"
+                android:textSize="13.5sp"
+                android:lineSpacingExtra="4dp" />
+
+            <!-- Doctors Container (If Clinical Triage Recommends Doctors) -->
+            <LinearLayout
+                android:id="@+id/layoutDoctorsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" />
+
+            <!-- Action Buttons Container (Vertical Stack for maximum readability) -->
+            <LinearLayout
+                android:id="@+id/layoutActionsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvAssistantMessageTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="6dp"
+                android:textColor="#94A3B8"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

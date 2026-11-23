@@ -1,0 +1,19 @@
+﻿=== WINHTTP ===
+
+Current WinHTTP proxy settings:
+
+    Direct access (no proxy server).
+
+=== IE/WININET (CurrentUser) ===
+
+
+ProxyEnable  : 0
+ProxyServer  : 
+AutoConfigUR : 
+
+
+
+=== WPAD ENV ===
+http_proxy=
+https_proxy=
+EXIT_0 

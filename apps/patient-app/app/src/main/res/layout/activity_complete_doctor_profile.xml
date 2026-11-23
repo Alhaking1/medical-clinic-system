@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_dark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- الأيقونة -->
+        <FrameLayout
+            android:id="@+id/iconContainer"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_circle_primary"
+            android:elevation="12dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="🩺"
+                android:textSize="44sp" />
+
+        </FrameLayout>
+
+        <!-- العنوان -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="إكمال بيانات الطبيب"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الحقول المُعلَّمة بـ * إلزامية"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <!-- الاسم -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* الاسم الكامل"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etFullName"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="مثال: د. أحمد محمد"
+            android:textColorHint="@color/on_surface_dark_tertiary"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="15sp"
+            android:inputType="textPersonName"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- التخصص -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* التخصص"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerSpecialty"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            style="@style/AppSpinner"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- الهاتف -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* رقم الهاتف"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="7XXXXXXXX"
+            android:textColorHint="@color/on_surface_dark_tertiary"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="16sp"
+            android:inputType="number"
+            android:maxLength="9"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true"
+            android:digits="0123456789" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- كلمة المرور -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* كلمة المرور (للدخول لاحقاً)"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="6 أحرف على الأقل"
+            android:textColorHint="@color/on_surface_dark_tertiary"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="16sp"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- العيادة (Spinner) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="العيادة (اختياري)"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spClinics"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            style="@style/AppSpinner"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <TextView
+            android:id="@+id/tvClinicsHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/on_surface_dark_tertiary"
+            android:textSize="12sp"
+            android:layout_marginTop="6dp"
+            android:visibility="gone" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- المحافظة (Spinner) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="المحافظة"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spGovernorate"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            style="@style/AppSpinner"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- العنوان -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="العنوان"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="الشارع، الحي..."
+            android:textColorHint="@color/on_surface_dark_tertiary"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="15sp"
+            android:inputType="text"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- الخبرة -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سنوات الخبرة"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etExperience"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="مثال: 5"
+            android:textColorHint="@color/on_surface_dark_tertiary"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="15sp"
+            android:inputType="number"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- السعر -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سعر الاستشارة (ريال)"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etFee"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="مثال: 5000"
+            android:textColorHint="@color/on_surface_dark_tertiary"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="15sp"
+            android:inputType="number"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- النبذة -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نبذة مختصرة"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etBio"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:hint="اكتب نبذة عن خبراتك..."
+            android:textColorHint="@color/on_surface_dark_tertiary"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="14sp"
+            android:background="@drawable/bg_input_field"
+            android:padding="16dp"
+            android:inputType="textMultiLine"
+            android:gravity="top" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="حفظ البيانات"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/brand_primary" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+    </LinearLayout>
+</ScrollView>

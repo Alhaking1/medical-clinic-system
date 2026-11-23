@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/surface_dark_elevated">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvNotifIcon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:background="@drawable/bg_circle_primary"
+            android:backgroundTint="@color/brand_primary_soft"
+            android:text="🔔"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvNotifTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="تنبيه بموعد الحجز"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/viewUnreadDot"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_circle_primary"
+                    android:backgroundTint="@color/brand_primary" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNotifBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="موعدك القادم مع د. أحمد سالم بعد ساعة واحدة. يرجى الحضور في الموعد."
+                android:textColor="@color/on_surface_dark_secondary"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:lineSpacingExtra="2dp" />
+
+            <TextView
+                android:id="@+id/tvNotifDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="منذ 15 دقيقة"
+                android:textColor="@color/on_surface_dark_disabled"
+                android:textSize="10sp"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">طبيبك</string>
+
+    <!-- Auth -->
+    <string name="login_title">مرحباً بعودتك</string>
+    <string name="login_phone">رقم الهاتف</string>
+    <string name="login_button">إرسال كود التحقق</string>
+    <string name="otp_title">كود التحقق</string>
+    <string name="otp_subtitle">أرسلنا كود مكون من 6 أرقام عبر واتساب إلى</string>
+    <string name="otp_button">تحقق</string>
+    <string name="otp_resend">إعادة إرسال الكود</string>
+    <string name="login_as_doctor">أنا طبيب</string>
+    <string name="login_as_secretary">أنا سكرتيرة</string>
+
+    <!-- Common -->
+    <string name="loading">جاري التحميل…</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="confirm">تأكيد</string>
+    <string name="save">حفظ</string>
+    <string name="delete">حذف</string>
+    <string name="edit">تعديل</string>
+    <string name="search">بحث</string>
+    <string name="close">إغلاق</string>
+    <string name="back">رجوع</string>
+    <string name="next">التالي</string>
+
+    <!-- Errors -->
+    <string name="error_network">خطأ في الشبكة — تحقق من اتصالك</string>
+    <string name="error_unknown">حدث خطأ ما</string>
+    <string name="error_required">هذا الحقل مطلوب</string>
+    <string name="error_invalid_phone">رقم هاتف غير صحيح</string>
+    <string name="error_invalid_otp">كود تحقق غير صحيح</string>
+
+    <!-- Doctor -->
+    <string name="doctor_dashboard">لوحة التحكم</string>
+    <string name="doctor_queue">الطابور</string>
+    <string name="doctor_patients">المرضى</string>
+    <string name="doctor_profile">الملف الشخصي</string>
+
+    <!-- Secretary -->
+    <string name="secretary_dashboard">لوحة التحكم</string>
+    <string name="secretary_check_in">تسجيل وصول</string>
+    <string name="secretary_appointments">المواعيد</string>
+    <string name="secretary_slots">الفترات الزمنية</string>
+    <string name="secretary_payments">المدفوعات</string>
+
+    <!-- Time -->
+    <string name="today">اليوم</string>
+    <string name="tomorrow">غداً</string>
+    <string name="yesterday">أمس</string>
+    <string name="now">الآن</string>
+    <string name="am">صباحاً</string>
+    <string name="pm">مساءً</string>
+</resources>

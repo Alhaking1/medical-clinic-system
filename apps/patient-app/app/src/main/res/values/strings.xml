@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">طبيبك</string>
+    <string name="app_name_ar" translatable="false">طبيبك</string>
+
+    <!-- Auth -->
+    <string name="login_title">Welcome Back</string>
+    <string name="login_phone">Phone Number</string>
+    <string name="login_button">Send Verification Code</string>
+    <string name="otp_title">Verification Code</string>
+    <string name="otp_subtitle">We sent a 6-digit code via WhatsApp to</string>
+    <string name="otp_button">Verify</string>
+    <string name="otp_resend">Resend Code</string>
+    <string name="login_as_doctor">I am a Doctor</string>
+    <string name="login_as_secretary">I am a Secretary</string>
+
+    <!-- Common -->
+    <string name="loading">Loading…</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="search">Search</string>
+    <string name="close">Close</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+
+    <!-- Errors -->
+    <string name="error_network">Network error — check your connection</string>
+    <string name="error_unknown">Something went wrong</string>
+    <string name="error_required">This field is required</string>
+    <string name="error_invalid_phone">Invalid phone number</string>
+    <string name="error_invalid_otp">Invalid verification code</string>
+
+    <!-- Doctor -->
+    <string name="doctor_dashboard">Dashboard</string>
+    <string name="doctor_queue">Queue</string>
+    <string name="doctor_patients">Patients</string>
+    <string name="doctor_profile">Profile</string>
+
+    <!-- Secretary -->
+    <string name="secretary_dashboard">Dashboard</string>
+    <string name="secretary_check_in">Check-In</string>
+    <string name="secretary_appointments">Appointments</string>
+    <string name="secretary_slots">Time Slots</string>
+    <string name="secretary_payments">Payments</string>
+
+    <!-- Time -->
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="now">Now</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <!-- Google Sign-In -->
+    <string name="google_sign_in">متابعة باستخدام Google</string>
+    <string name="google_sign_in_hint">سيتم فتح نافذة لحسابات Google المتاحة على جهازك</string>
+    <string name="loading_connecting">جاري الاتصال...</string>
+
+    <!-- Complete Profile -->
+    <string name="complete_doctor_title">إكمال بيانات الطبيب</string>
+    <string name="complete_secretary_title">إكمال بيانات السكرتيرة</string>
+    <string name="required_fields_hint">الحقول المُعلَّمة بـ * إلزامية</string>
+
+    <!-- Pending -->
+    <string name="pending_title">حسابك قيد المراجعة</string>
+    <string name="pending_hint">سيتم إشعارك عند الموافقة على حسابك</string>
+
+    <!-- NFC Service -->
+    <string name="nfc_service_desc">خدمة تأكيد الحضور الذكي بالـ NFC</string>
+    <string name="nfc_aid_desc">حجوزات عيادتي</string>
+</resources>

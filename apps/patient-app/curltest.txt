@@ -1,0 +1,3 @@
+=== CURL via cmd ===
+CURL_EXIT=0
+EXIT_0 

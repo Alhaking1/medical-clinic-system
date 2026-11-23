@@ -1,0 +1,46 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/
+uploads/
+*.log
+.DS_Store
+
+*.bak
+.env
+*.db
+node_modules/
+uploads/
+backups/
+
+# Backups (نسخ احتياطية محلية)
+*.backup
+*.bak_*
+*_backup_*
+src_backup_*
+.env.bak*
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+data/
+
+# Backups Directory
+_backups/
+*.bak
+*.bak_*
+*.BROKEN_*
+
+# Sensitive credentials & exports
+supabase_credentials.txt
+supabase_data/
+schema_export.sql
+logs/
+*.pem
+*.key
+*.jks
+google-services.json
+google-service-account.json
+firebase-service-account.json

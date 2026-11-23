@@ -1,0 +1,96 @@
+﻿package com.medical.clinic.viewmodel
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.medical.clinic.data.models.User
+import com.medical.clinic.data.repository.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class AuthViewModel @Inject constructor(
+    private val authRepository: AuthRepository
+) : ViewModel() {
+
+    // ═══════════════════════════════════════════
+    // Login State
+    // ═══════════════════════════════════════════
+
+    private val _loginState = MutableStateFlow<LoginState>(LoginState.Idle)
+    val loginState: StateFlow<LoginState> = _loginState.asStateFlow()
+
+    // ═══════════════════════════════════════════
+    // Password State
+    // ═══════════════════════════════════════════
+
+    private val _passwordState = MutableStateFlow<PasswordState>(PasswordState.Idle)
+    val passwordState: StateFlow<PasswordState> = _passwordState.asStateFlow()
+
+    // ═══════════════════════════════════════════
+    // Actions
+    // ═══════════════════════════════════════════
+
+    fun login(email: String, password: String, role: String) {
+        viewModelScope.launch {
+            _loginState.value = LoginState.Loading
+
+            authRepository.login(email, password, role)
+                .onSuccess { user ->
+                    _loginState.value = LoginState.Success(user)
+                }
+                .onFailure { error ->
+                    _loginState.value = LoginState.Error(error.message ?: "خطأ غير معروف")
+                }
+        }
+    }
+
+    fun setPassword(newPassword: String, currentPassword: String? = null) {
+        viewModelScope.launch {
+            _passwordState.value = PasswordState.Loading
+
+            authRepository.setPassword(newPassword, currentPassword)
+                .onSuccess {
+                    _passwordState.value = PasswordState.Success
+                }
+                .onFailure { error ->
+                    _passwordState.value = PasswordState.Error(error.message ?: "خطأ غير معروف")
+                }
+        }
+    }
+
+    fun resetLoginState() {
+        _loginState.value = LoginState.Idle
+    }
+
+    fun resetPasswordState() {
+        _passwordState.value = PasswordState.Idle
+    }
+
+    fun logout() {
+        viewModelScope.launch {
+            authRepository.logout()
+        }
+    }
+
+    // ═══════════════════════════════════════════
+    // State Classes
+    // ═══════════════════════════════════════════
+
+    sealed class LoginState {
+        object Idle : LoginState()
+        object Loading : LoginState()
+        data class Success(val user: User) : LoginState()
+        data class Error(val message: String) : LoginState()
+    }
+
+    sealed class PasswordState {
+        object Idle : PasswordState()
+        object Loading : PasswordState()
+        object Success : PasswordState()
+        data class Error(val message: String) : PasswordState()
+    }
+}

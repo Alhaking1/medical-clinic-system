@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Brand Colors — الهوية البصرية الفخمة (طبيبك) -->
+    <!-- ═══════════════════════════════════════════ -->
+    <color name="brand_primary">#0A5C5F</color>
+    <color name="brand_primary_dark">#084749</color>
+    <color name="brand_primary_light">#14B8A6</color>
+    <color name="brand_primary_soft">#E6F4F1</color>
+
+    <color name="brand_secondary">#10B981</color>
+    <color name="brand_secondary_dark">#059669</color>
+    <color name="brand_secondary_soft">#ECFDF5</color>
+
+    <color name="brand_accent">#14B8A6</color>
+    <color name="brand_danger">#EF4444</color>
+    <color name="brand_success">#10B981</color>
+    <color name="gold_star">#F59E0B</color>
+    <color name="danger_soft">#FEE2E2</color>
+    <color name="brand_stroke_alpha">#9914B8A6</color>
+    <color name="card_gradient_center">#F8FAFC</color>
+    <color name="card_gradient_end">#F0FDFA</color>
+    <color name="card_gradient_stroke">#CCFBF1</color>
+
+    <!-- Exact Reference Palette -->
+    <color name="teal_deep">#0A5C5F</color>
+    <color name="teal_fresh">#14B8A6</color>
+    <color name="teal_soft">#E6F4F1</color>
+    <color name="gold_champagne">#D4AF37</color>
+    <color name="amber_warning">#F59E0B</color>
+    <color name="red_error">#EF4444</color>
+    <color name="green_success">#10B981</color>
+    <color name="navy_ink">#0A1929</color>
+    <color name="navy_active">#1E293B</color>
+    <color name="gray_mid">#6B7280</color>
+    <color name="gray_light">#E5E7EB</color>
+    <color name="pearl_bg">#F8F4EE</color>
+
+    <!-- Specialty Pastel Circles -->
+    <color name="pastel_pink_bg">#FCE7F3</color>
+    <color name="pastel_pink_icon">#DB2777</color>
+    <color name="pastel_teal_bg">#CCFBF1</color>
+    <color name="pastel_teal_icon">#0D9488</color>
+    <color name="pastel_amber_bg">#FEF3C7</color>
+    <color name="pastel_amber_icon">#F59E0B</color>
+    <color name="pastel_cyan_bg">#CFFAFE</color>
+    <color name="pastel_cyan_icon">#06B6D4</color>
+    <color name="pastel_purple_bg">#EDE9FE</color>
+    <color name="pastel_purple_icon">#7C3AED</color>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Surfaces — أسطح أنيقة وناعمة مطابقة للمرجع -->
+    <!-- ═══════════════════════════════════════════ -->
+    <color name="surface_dark">#F8F9FA</color>
+    <color name="surface_dark_elevated">#FFFFFF</color>
+    <color name="surface_dark_card">#FFFFFF</color>
+    <color name="surface_deep">#F1F5F9</color>
+    <color name="surface_gradient_start">#0A5C5F</color>
+    <color name="surface_gradient_end">#14B8A6</color>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Text — نصوص واضحة ودقيقة التباين -->
+    <!-- ═══════════════════════════════════════════ -->
+    <color name="on_surface_dark">#0A1929</color>
+    <color name="on_surface_dark_secondary">#4B5563</color>
+    <color name="on_surface_dark_tertiary">#6B7280</color>
+    <color name="on_surface_dark_disabled">#9CA3AF</color>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Status -->
+    <!-- ═══════════════════════════════════════════ -->
+    <color name="status_waiting">#F59E0B</color>
+    <color name="status_in_progress">#14B8A6</color>
+    <color name="status_done">#10B981</color>
+    <color name="status_cancelled">#EF4444</color>
+    <color name="status_no_show">#9CA3AF</color>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Special & Borders -->
+    <!-- ═══════════════════════════════════════════ -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="scrim">#80000000</color>
+    <color name="divider">#E5E7EB</color>
+    <color name="border_field">#E5E7EB</color>
+    <color name="google_btn_bg">#FFFFFF</color>
+    <color name="google_btn_border">#E5E7EB</color>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Notification & Warning -->
+    <!-- ═══════════════════════════════════════════ -->
+    <color name="banner_warning_bg">#FEF3C7</color>
+    <color name="banner_warning_text">#92400E</color>
+    <color name="banner_warning_hint">#B45309</color>
+</resources>

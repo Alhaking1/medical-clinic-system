@@ -1,0 +1,33 @@
+﻿package com.medical.clinic.ui.auth
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.medical.clinic.R
+import com.medical.clinic.utils.Constants
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class RoleSelectionActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_role_selection)
+
+        // زر "أنا طبيب"
+        findViewById<android.widget.Button>(R.id.btnDoctor).setOnClickListener {
+            openLogin(Constants.ROLE_DOCTOR)
+        }
+
+        // زر "أنا سكرتيرة"
+        findViewById<android.widget.Button>(R.id.btnSecretary).setOnClickListener {
+            openLogin(Constants.ROLE_SECRETARY)
+        }
+    }
+
+    private fun openLogin(role: String) {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.putExtra("role", role)
+        startActivity(intent)
+    }
+}

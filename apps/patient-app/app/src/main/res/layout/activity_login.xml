@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_dark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="36dp">
+
+        <!-- 1. شعار تطبيق طبيبك الفاخر -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/ic_tabeebak_logo"
+            android:contentDescription="شعار طبيبك" />
+
+        <!-- عنوان التطبيق الفخم والغامق -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="طبيبك"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="منظومة الرعاية وحجز المواعيد الطبية الأولى في اليمن"
+            android:textColor="@color/on_surface_dark_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- 2. حقول الإدخال (الهاتف أو البريد) -->
+        <EditText
+            android:id="@+id/etLogin"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="28dp"
+            android:hint="رقم الهاتف (7xxxxxxxx) أو البريد"
+            android:textColorHint="@color/on_surface_dark_disabled"
+            android:textColor="@color/on_surface_dark"
+            android:textSize="14sp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:maxLength="30"
+            android:singleLine="true" />
+
+        <!-- حقل كلمة المرور مع زر إظهار/إخفاء -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/on_surface_dark_tertiary"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:errorEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:hint="كلمة المرور"
+                android:textColorHint="@color/on_surface_dark_disabled"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="16dp"
+                android:paddingEnd="48dp"
+                android:maxLength="32"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- زر نسيت كلمة المرور؟ -->
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="8dp"
+            android:text="نسيت كلمة المرور؟"
+            android:textColor="@color/brand_primary_dark"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:padding="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground" />
+
+        <!-- 3. زر تسجيل الدخول الأساسي -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="18dp"
+            android:text="تسجيل الدخول"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/brand_primary"
+            app:elevation="2dp" />
+
+        <!-- 4. زر دخول بالبصمة فقط -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBiometricLogin"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:text="دخول بالبصمة فقط"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/brand_primary_dark"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_fingerprint"
+            app:iconGravity="textStart"
+            app:iconTint="@color/brand_primary"
+            app:iconPadding="10dp"
+            app:strokeColor="@color/brand_primary"
+            app:strokeWidth="1.5dp"
+            app:backgroundTint="@color/surface_dark_elevated" />
+
+        <!-- 5. زر الدخول عبر Google -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:text="دخول عبر جوجل"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface_dark_secondary"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_google_logo"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:strokeColor="@color/google_btn_border"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@color/google_btn_bg" />
+
+        <!-- 6. زر تصفح بدون حساب (دخول كزائر) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuestLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:text="تسجيل دخول بدون حساب (تصفح كزائر)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface_dark_tertiary"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/border_field"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@android:color/transparent" />
+
+        <!-- مؤشر التحميل -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:indeterminateTint="@color/brand_primary" />
+
+        <!-- رسائل الخطأ والتنبيهات -->
+        <TextView
+            android:id="@+id/tvHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/brand_danger"
+            android:textSize="12sp" />
+
+        <!-- 7. ليس لديك حساب؟ إنشاء حساب جديد -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ليس لديك حساب؟ "
+                android:textColor="@color/on_surface_dark_tertiary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvCreateAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="إنشاء حساب جديد"
+                android:textColor="@color/brand_primary"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:background="?attr/selectableItemBackground" />
+        </LinearLayout>
+
+        <!-- إصدار التطبيق -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="طبيبك • منصة الرعاية الطبية في اليمن v1.0.0"
+            android:textColor="@color/on_surface_dark_disabled"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>

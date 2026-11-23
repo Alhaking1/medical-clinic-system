@@ -1,0 +1,29 @@
+# Root .gitignore for Medical Clinic System
+
+# Dependencies & Build artifacts
+node_modules/
+.gradle/
+build/
+app/build/
+*.iml
+.idea/
+.idea.backup*/
+.kotlin/
+local.properties
+
+# Logs & temp files
+*.log
+*.tmp
+tmp/
+.DS_Store
+Thumbs.db
+
+# Sensitive keys and backups
+*.db-journal
+*.db-wal
+_backups*/
+*.jks
+*.keystore
+
+# Uploads directory
+backend/uploads/

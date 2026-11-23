@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="650dp"
+    android:background="@drawable/bg_dialog_rounded">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_circle_primary_soft"
+                android:gravity="center"
+                android:text="⏰"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/tvScheduleClinicTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مواعيد وساعات عمل العيادة"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCurrentScheduleStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="جلب المواعيد الحالية..."
+                    android:textColor="@color/brand_primary_dark"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 24 Hours Switch Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#330D9488"
+            app:cardBackgroundColor="#F0FDFA"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="14dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="دوام 24 ساعة متواصل ⏱️"
+                        android:textColor="@color/brand_primary_dark"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="العيادة مفتوحة طوال اليوم بدون إغلاق ولا داعي لقالب"
+                        android:textColor="@color/on_surface_dark_tertiary"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch24Hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Container for Templates when 24h is OFF -->
+        <LinearLayout
+            android:id="@+id/layoutTemplateContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Template Type Radio Group -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نوع قالب الدوام المتكرر:"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
+
+            <RadioGroup
+                android:id="@+id/rgScheduleType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="14dp">
+
+                <RadioButton
+                    android:id="@+id/rbDailyTemplate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="قالب يومي موحد 📅"
+                    android:textSize="13sp" />
+
+                <RadioButton
+                    android:id="@+id/rbWeeklyTemplate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="قالب أسبوعي مخصص 🗓️"
+                    android:textSize="13sp" />
+            </RadioGroup>
+
+            <!-- Daily Template Section -->
+            <LinearLayout
+                android:id="@+id/layoutDailySection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_outlined"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="توقيت الدوام اليومي (يطبق تلقائياً كل يوم):"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <!-- Open Time -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="وقت فتح العيادة:"
+                            android:textColor="@color/on_surface_dark_secondary"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDailyOpenTime"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="08:00 ص"
+                            android:textSize="13sp"
+                            app:cornerRadius="12dp" />
+                    </LinearLayout>
+
+                    <!-- Close Time -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="وقت إغلاق العيادة:"
+                            android:textColor="@color/on_surface_dark_secondary"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDailyCloseTime"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="10:00 م"
+                            android:textSize="13sp"
+                            app:cornerRadius="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Weekly Template Section -->
+            <LinearLayout
+                android:id="@+id/layoutWeeklySection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:background="@drawable/bg_card_outlined"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تحديد ساعات دوام كل يوم من أيام الأسبوع 🗓️:"
+                    android:textColor="@color/on_surface_dark"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="حددي وقت البداية والنهاية لكل يوم، أو فعلي العطلة للأيام التي تغلق فيها العيادة:"
+                    android:textColor="@color/on_surface_dark_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Container dynamically filled with 7 days -->
+                <LinearLayout
+                    android:id="@+id/layoutWeeklyDaysContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/tvWeeklyDetailsNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✅ يتم تطبيق القالب أسبوعياً طوال العام وتحديث حالة الفتح والإغلاق للمرضى تلقائياً."
+                    android:textColor="@color/brand_primary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Loading Indicator -->
+        <ProgressBar
+            android:id="@+id/pbScheduleLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelSchedule"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="إلغاء"
+                android:textColor="@color/on_surface_dark_tertiary"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="حفظ وتطبيق القالب 💾"
+                android:textColor="@color/white"
+                app:cornerRadius="14dp"
+                android:backgroundTint="@color/brand_primary" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

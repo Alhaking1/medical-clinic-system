@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/root_bottom_sheet_create_delegation"
+android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface_dark_elevated"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="20dp">
+
+    <!-- ═══ Drag Handle ═══ -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/on_surface_dark_disabled" />
+
+    <!-- ═══ Title ═══ -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📤 إنشاء تفويض جديد"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="20dp"
+        android:text="فوّض سكرتيرة أخرى لإدارة مواعيد طبيب لمدة محددة"
+        android:textColor="@color/on_surface_dark_tertiary"
+        android:textSize="13sp" />
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 🩺 اختيار الطبيب -->
+    <!-- ═══════════════════════════════════════════ -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="الطبيب *"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp">
+
+        <Spinner
+            android:id="@+id/spinnerDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_input_field"
+            android:paddingHorizontal="16dp"
+            android:popupBackground="@color/surface_dark_elevated" />
+    </FrameLayout>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 👩‍💼 اختيار السكرتيرة -->
+    <!-- ═══════════════════════════════════════════ -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="السكرتيرة المفوَّضة *"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp">
+
+        <Spinner
+            android:id="@+id/spinnerSecretary"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_input_field"
+            android:paddingHorizontal="16dp"
+            android:popupBackground="@color/surface_dark_elevated" />
+    </FrameLayout>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 📅 المدة (تاريخ البداية والنهاية) -->
+    <!-- ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <!-- تاريخ البداية -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="من *"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDateFrom"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_input_field"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:hint="YYYY-MM-DD"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/on_surface_dark"
+                android:textColorHint="@color/on_surface_dark_disabled"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- تاريخ النهاية -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="إلى *"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDateTo"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_input_field"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:hint="YYYY-MM-DD"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/on_surface_dark"
+                android:textColorHint="@color/on_surface_dark_disabled"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 📊 الحد الأقصى للحجوزات -->
+    <!-- ═══════════════════════════════════════════ -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="الحد الأقصى للحجوزات (اختياري)"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etMaxBookings"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_input_field"
+        android:hint="مثال: 50"
+        android:inputType="number"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/on_surface_dark"
+        android:textColorHint="@color/on_surface_dark_disabled"
+        android:textSize="14sp" />
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 💬 رسالة (اختياري) -->
+    <!-- ═══════════════════════════════════════════ -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="رسالة (اختياري)"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etMessage"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_input_field"
+        android:gravity="top|start"
+        android:hint="اكتب رسالة توضيحية..."
+        android:inputType="textMultiLine"
+        android:maxLines="4"
+        android:padding="16dp"
+        android:textColor="@color/on_surface_dark"
+        android:textColorHint="@color/on_surface_dark_disabled"
+        android:textSize="14sp" />
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ⚠️ رسالة الخطأ -->
+    <!-- ═══════════════════════════════════════════ -->
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/danger_soft"
+        android:padding="10dp"
+        android:text=""
+        android:textColor="@color/brand_danger"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 🎯 أزرار الإجراءات -->
+    <!-- ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/Widget.MedicalClinic.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:text="إلغاء" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            style="@style/Widget.MedicalClinic.PrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:text="📤 إرسال الطلب" />
+    </LinearLayout>
+
+    <!-- Progress -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:indeterminateTint="@color/brand_primary"
+        android:visibility="gone" />
+
+</LinearLayout>

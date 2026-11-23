@@ -1,0 +1,34 @@
+﻿package com.medical.clinic.data.models
+
+import com.google.gson.annotations.SerializedName
+
+/**
+ * صلاحيات المستخدم
+ */
+data class Permissions(
+    // للطبيب
+    @SerializedName("view_queue") val viewQueue: Boolean = false,
+    @SerializedName("receive_patient") val receivePatient: Boolean = false,
+    @SerializedName("medical_records") val medicalRecords: Boolean = false,
+    @SerializedName("view_own_schedule") val viewOwnSchedule: Boolean = false,
+
+    // للسكرتيرة
+    @SerializedName("check_in") val checkIn: Boolean = false,
+    @SerializedName("edit_appointments") val editAppointments: Boolean = false,
+    @SerializedName("manage_slots") val manageSlots: Boolean = false,
+    @SerializedName("confirm_payments") val confirmPayments: Boolean = false,
+    @SerializedName("manage_doctors") val manageDoctors: Boolean = false,
+    @SerializedName("approve_doctors") val approveDoctors: Boolean = false,
+
+    // مشتركة
+    @SerializedName("view_appointments") val viewAppointments: Boolean = false,
+    @SerializedName("view_patients") val viewPatients: Boolean = false,
+    @SerializedName("view_slots") val viewSlots: Boolean = false,
+    @SerializedName("view_payments") val viewPayments: Boolean = false,
+    @SerializedName("all") val all: Boolean = false
+) {
+    companion object {
+        fun empty() = Permissions()
+        fun full() = Permissions(all = true)
+    }
+}
