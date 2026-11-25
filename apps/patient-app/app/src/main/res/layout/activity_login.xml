@@ -113,14 +113,14 @@
             android:id="@+id/btnPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="20dp"
             android:text="تسجيل الدخول"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             app:cornerRadius="16dp"
-            app:backgroundTint="@color/brand_primary"
-            app:elevation="2dp" />
+            app:backgroundTint="#0F766E"
+            app:elevation="3dp" />
 
         <!-- 4. زر دخول بالبصمة فقط -->
         <com.google.android.material.button.MaterialButton
