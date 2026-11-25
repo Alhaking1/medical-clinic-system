@@ -67,15 +67,14 @@
                 android:id="@+id/tvApptQueueNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_tab_pill_active"
-                android:backgroundTint="#E6F4F1"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp"
+                android:background="@drawable/bg_pill_queue_number"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:text="الدور #3"
-                android:textColor="@color/brand_primary"
-                android:textSize="11sp"
+                android:textColor="#15803D"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
