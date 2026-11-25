@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutEmptyStateContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <!-- Empty State Circular Icon Container -->
+    <FrameLayout
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:background="@drawable/bg_circle_primary"
+        android:backgroundTint="#F0FDFA">
+
+        <TextView
+            android:id="@+id/tvEmptyStateEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="🩺"
+            android:textSize="40sp" />
+    </FrameLayout>
+
+    <!-- Empty State Title -->
+    <TextView
+        android:id="@+id/tvEmptyStateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="لا توجد نتائج حالياً"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- Empty State Description -->
+    <TextView
+        android:id="@+id/tvEmptyStateDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="لم نتمكن من العثور على أطباء يطابقون بحثك. جرب اختيار تخصص أو محافظة أخرى."
+        android:textColor="@color/on_surface_dark_secondary"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp" />
+
+    <!-- Action Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEmptyStateAction"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:text="إعادة ضبط البحث 🔄"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:backgroundTint="#0F766E"
+        app:cornerRadius="14dp"
+        android:paddingHorizontal="24dp" />
+</LinearLayout>
