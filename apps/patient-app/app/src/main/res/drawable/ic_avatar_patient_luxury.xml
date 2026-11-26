@@ -5,20 +5,20 @@
     android:viewportHeight="96">
     <!-- Outer Circular Soft Background -->
     <path
-        android:fillColor="#E6F4F1"
+        android:fillColor="#E6FBF9"
         android:pathData="M48,0A48,48 0,1 0,96 48,48 48,0 0,0 48,0z" />
     
     <!-- User Head -->
     <path
-        android:fillColor="#0A5C5F"
+        android:fillColor="#0D9488"
         android:pathData="M48,22c-7.73,0 -14,6.27 -14,14s6.27,14 14,14 14,-6.27 14,-14 -6.27,-14 -14,-14z" />
     
     <!-- User Body / Shoulders -->
     <path
-        android:fillColor="#14B8A6"
+        android:fillColor="#0284C7"
         android:pathData="M48,54c-13.33,0 -26,6.67 -26,18v8c0,1.1 0.9,2 2,2h48c1.1,0 2,-0.9 2,-2v-8c0,-11.33 -12.67,-18 -26,-18z" />
 
-    <!-- Subtle Medical Emblem / Star of Life Accent -->
+    <!-- Subtle Medical Cross / Star of Life Accent -->
     <path
         android:fillColor="#FFFFFF"
         android:pathData="M46,30h4v12h-4z" />
