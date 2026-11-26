@@ -29,6 +29,7 @@ import java.util.Date
 import java.util.Locale
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -279,34 +280,38 @@ class AppointmentsAdapter(
 
             if (isToday(item.periodDate) && item.status != "cancelled" && item.status != "completed") {
                 cardLiveQueue?.visibility = View.VISIBLE
-                tvLiveQueueStatus?.text = "جاري فحص حالة الطابور اللحظية..."
+                tvLiveQueueStatus?.text = "جاري الاتصال بالطابور الحي..."
                 if (apiService != null) {
-                    CoroutineScope(Dispatchers.IO).launch {
-                        try {
-                            val resp = apiService.getLiveQueueStatus(item.id)
-                            if (resp.success && resp.data != null) {
-                                val data = resp.data
-                                withContext(Dispatchers.Main) {
-                                    if (data.patientsAhead == 0) {
-                                        cardLiveQueue?.setCardBackgroundColor(Color.parseColor("#FEF3C7"))
-                                        cardLiveQueue?.strokeColor = Color.parseColor("#FDE68A")
-                                        tvLiveQueueStatus?.setTextColor(Color.parseColor("#B45309"))
-                                        tvLiveQueueStatus?.text = "🏥 حان دورك الآن! يرجى الدخول للطبيب"
-                                    } else if (data.patientsAhead == 1) {
-                                        cardLiveQueue?.setCardBackgroundColor(Color.parseColor("#EFF6FF"))
-                                        cardLiveQueue?.strokeColor = Color.parseColor("#BFDBFE")
-                                        tvLiveQueueStatus?.setTextColor(Color.parseColor("#1D4ED8"))
-                                        tvLiveQueueStatus?.text = "⏳ أنت المريض التالي! يرجى الاستعداد عند الباب"
-                                    } else {
-                                        cardLiveQueue?.setCardBackgroundColor(Color.parseColor("#ECFDF5"))
-                                        cardLiveQueue?.strokeColor = Color.parseColor("#A7F3D0")
-                                        tvLiveQueueStatus?.setTextColor(Color.parseColor("#047857"))
-                                        tvLiveQueueStatus?.text = "يجري الآن كشف دور #" + data.currentServingNumber + " • يتبقى أمامك " + data.patientsAhead + " مرضى (~" + data.estimatedWaitMinutes + " دقيقة)"
+                    val streamJob = CoroutineScope(Dispatchers.IO).launch {
+                        while (isActive) {
+                            try {
+                                val resp = apiService.getLiveQueueStatus(item.id)
+                                if (resp.success && resp.data != null) {
+                                    val data = resp.data
+                                    withContext(Dispatchers.Main) {
+                                        if (data.patientsAhead == 0) {
+                                            cardLiveQueue?.setCardBackgroundColor(Color.parseColor("#FEF3C7"))
+                                            cardLiveQueue?.strokeColor = Color.parseColor("#FDE68A")
+                                            tvLiveQueueStatus?.setTextColor(Color.parseColor("#B45309"))
+                                            tvLiveQueueStatus?.text = "🏥 حان دورك الآن! يرجى الدخول لغرفة الطبيب"
+                                        } else if (data.patientsAhead == 1) {
+                                            cardLiveQueue?.setCardBackgroundColor(Color.parseColor("#EFF6FF"))
+                                            cardLiveQueue?.strokeColor = Color.parseColor("#BFDBFE")
+                                            tvLiveQueueStatus?.setTextColor(Color.parseColor("#1D4ED8"))
+                                            tvLiveQueueStatus?.text = "⏳ أنت المريض التالي! يرجى التوجه لباب العيادة"
+                                        } else {
+                                            cardLiveQueue?.setCardBackgroundColor(Color.parseColor("#ECFDF5"))
+                                            cardLiveQueue?.strokeColor = Color.parseColor("#A7F3D0")
+                                            tvLiveQueueStatus?.setTextColor(Color.parseColor("#047857"))
+                                            tvLiveQueueStatus?.text = "يجري الآن كشف دور #" + data.currentServingNumber + " • يتبقى أمامك " + data.patientsAhead + " مرضى (~" + data.estimatedWaitMinutes + " دقيقة)"
+                                        }
                                     }
                                 }
-                            }
-                        } catch (_: Exception) {}
+                            } catch (_: Exception) {}
+                            kotlinx.coroutines.delay(4000)
+                        }
                     }
+                    dialog.setOnDismissListener { streamJob.cancel() }
                 }
             } else {
                 cardLiveQueue?.visibility = View.GONE
