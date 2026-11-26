@@ -6,8 +6,8 @@
 
     <!-- خلفية أيقونة التطبيق المنحنية الأطراف (Squircle) -->
     <path
-        android:fillColor="#F0FDFA"
-        android:strokeColor="#CCFBF1"
+        android:fillColor="#E6FBF9"
+        android:strokeColor="#99F6E4"
         android:strokeWidth="6"
         android:pathData="M136,36 L376,36 A100,100 0 0,1 476,136 L476,376 A100,100 0 0,1 376,476 L136,476 A100,100 0 0,1 36,376 L36,136 A100,100 0 0,1 136,36 Z" />
 
@@ -22,13 +22,13 @@
     <!-- سماعة الطبيب (Stethoscope) -->
     <path
         android:strokeWidth="15"
-        android:strokeColor="#0D9488"
+        android:strokeColor="#0284C7"
         android:strokeLineCap="round"
         android:pathData="M195,160 C180,210 210,260 256,270" />
 
     <!-- رأس سماعة الطبيب -->
     <path
-        android:fillColor="#0D9488"
+        android:fillColor="#0284C7"
         android:pathData="M195,160m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
 
     <!-- قلب الرعاية والاهتمام (Heart) -->

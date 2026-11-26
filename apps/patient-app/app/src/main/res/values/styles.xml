@@ -19,14 +19,16 @@
     <style name="Widget.MedicalClinic.BottomNav.ActiveText" parent="TextAppearance.Material3.LabelMedium">
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/font_cairo</item>
+        <item name="fontFamily">@font/font_cairo</item>
         <item name="android:letterSpacing">0.01</item>
     </style>
 
     <style name="Widget.MedicalClinic.BottomNav.InactiveText" parent="TextAppearance.Material3.LabelSmall">
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/font_cairo</item>
+        <item name="fontFamily">@font/font_cairo</item>
     </style>
 
     <style name="Widget.MedicalClinic.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
