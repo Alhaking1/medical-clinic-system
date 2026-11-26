@@ -34,6 +34,7 @@ class DoctorQueueFragment : Fragment() {
     private lateinit var queueAdapter: QueueAdapter
     private var allQueueItems = listOf<DoctorQueueItem>()
     private var selectedFilter = "all"
+    private var queueJob: kotlinx.coroutines.Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -47,6 +48,26 @@ class DoctorQueueFragment : Fragment() {
         setupRecyclerView()
         setupListeners()
         loadQueue()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startPeriodicQueueUpdates()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        queueJob?.cancel()
+    }
+
+    private fun startPeriodicQueueUpdates() {
+        queueJob?.cancel()
+        queueJob = viewLifecycleOwner.lifecycleScope.launch {
+            while (kotlinx.coroutines.isActive) {
+                kotlinx.coroutines.delay(8000)
+                loadQueue(silent = true)
+            }
+        }
     }
 
     private fun setupRecyclerView() {
@@ -84,7 +105,11 @@ class DoctorQueueFragment : Fragment() {
 
     private fun setupListeners() {
         binding.swipeRefreshQueue.setOnRefreshListener {
-            loadQueue()
+            loadQueue(silent = false)
+        }
+
+        binding.btnRefreshEmptyQueue.setOnClickListener {
+            loadQueue(silent = false)
         }
 
         binding.chipGroupStatus.setOnCheckedStateChangeListener { _, checkedIds ->
@@ -98,7 +123,7 @@ class DoctorQueueFragment : Fragment() {
         }
     }
 
-    private fun loadQueue() {
+    private fun loadQueue(silent: Boolean = false) {
         if (sessionManager.isGuestMode() || sessionManager.mustCompleteProfile()) {
             binding.swipeRefreshQueue.isRefreshing = false
             allQueueItems = emptyList()
@@ -107,7 +132,9 @@ class DoctorQueueFragment : Fragment() {
         }
 
         val user = sessionManager.getUser() ?: return
-        _binding?.swipeRefreshQueue?.isRefreshing = true
+        if (!silent) {
+            _binding?.swipeRefreshQueue?.isRefreshing = true
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
@@ -116,7 +143,7 @@ class DoctorQueueFragment : Fragment() {
                 if (res is Resource.Success && res.data != null) {
                     allQueueItems = res.data
                     applyFilter()
-                } else {
+                } else if (!silent) {
                     context?.let { ctx ->
                         Toast.makeText(ctx, res.message ?: "فشل جلب الطابور", Toast.LENGTH_SHORT).show()
                     }
@@ -124,7 +151,9 @@ class DoctorQueueFragment : Fragment() {
             } catch (e: Exception) {
                 // handle error safely
             } finally {
-                _binding?.swipeRefreshQueue?.isRefreshing = false
+                if (!silent) {
+                    _binding?.swipeRefreshQueue?.isRefreshing = false
+                }
             }
         }
     }
