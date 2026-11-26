@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
     app:cardBackgroundColor="#FFFFFF">
 
     <LinearLayout
@@ -13,32 +13,38 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="10dp">
+        android:padding="12dp"
+        android:layoutDirection="rtl">
 
-        <ImageView
-            android:id="@+id/ivDocCardAvatar"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:background="@drawable/bg_circle_primary"
-            android:backgroundTint="#E0F2F1"
-            android:src="@drawable/ic_nav_profile"
-            app:tint="#00897B"
-            android:padding="8dp" />
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_circle_soft_teal">
+
+            <ImageView
+                android:id="@+id/ivDocCardAvatar"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_profile"
+                app:tint="@color/brand_primary"
+                android:contentDescription="صورة الطبيب" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginStart="10dp">
+            android:layout_marginStart="12dp">
 
             <TextView
                 android:id="@+id/tvDocCardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="د. أحمد محمد"
-                android:textColor="#1E293B"
-                android:textSize="13sp"
+                android:textColor="#0F172A"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -46,22 +52,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="عيادة النور • 4,500 ر.ي"
-                android:textColor="#64748B"
-                android:textSize="11sp"
+                android:textColor="#0D9488"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:layout_marginTop="2dp" />
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBookDocCard"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:text="احجز الآن ❯"
-            android:textSize="11sp"
+            android:layout_height="40dp"
+            android:text="حجز موعد ❯"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            app:backgroundTint="#00897B"
-            app:cornerRadius="8dp"
-            android:paddingHorizontal="10dp"
+            app:backgroundTint="@color/brand_primary"
+            app:cornerRadius="12dp"
+            android:paddingHorizontal="14dp"
             android:insetTop="0dp"
             android:insetBottom="0dp" />
     </LinearLayout>
