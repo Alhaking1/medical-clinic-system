@@ -13,35 +13,38 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Top Profile Card -->
-        <androidx.cardview.widget.CardView
+        <!-- بطاقة الملف الشخصي الفاخرة المدمجة والأنيقة -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="3dp"
-            app:cardBackgroundColor="@color/transparent">
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/brand_stroke_alpha"
+            app:cardBackgroundColor="@color/surface_dark_elevated">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_card_profile_hero"
-                android:padding="24dp">
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_card_3d_glass"
+                android:padding="14dp">
 
+                <!-- صورة البروفايل المدمجة مع شارة الكاميرا -->
                 <FrameLayout
                     android:id="@+id/layoutAvatarContainer"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:clipChildren="false"
                     android:clickable="true"
                     android:focusable="true">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
                         android:layout_gravity="center"
-                        app:cardCornerRadius="44dp"
+                        app:cardCornerRadius="28dp"
                         app:cardElevation="0dp"
                         app:cardBackgroundColor="@color/surface_dark">
 
@@ -56,16 +59,16 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/btnChangeAvatarBadge"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:layout_gravity="bottom|end"
-                        app:cardCornerRadius="16dp"
+                        app:cardCornerRadius="11dp"
                         app:cardBackgroundColor="@color/brand_primary"
-                        app:cardElevation="4dp">
+                        app:cardElevation="3dp">
 
                         <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_camera"
                             app:tint="@android:color/white"
@@ -74,65 +77,81 @@
 
                     <ProgressBar
                         android:id="@+id/progressAvatarUpload"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:layout_gravity="center"
                         android:visibility="gone"
                         android:indeterminateTint="@color/brand_primary" />
                 </FrameLayout>
 
-                <TextView
-                    android:id="@+id/tvProfileName"
-                    android:layout_width="wrap_content"
+                <!-- بيانات المستخدم: الاسم ورقم الهاتف والشارة مرتبة أفقياً بأناقة -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="عبدالله محمد الحميري"
-                    android:textColor="@color/on_surface_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="12dp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="4dp">
 
-                <TextView
-                    android:id="@+id/tvProfilePhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+967 771 234 567"
-                    android:textColor="@color/on_surface_dark_secondary"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp" />
+                    <TextView
+                        android:id="@+id/tvProfileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="عبدالله محمد الحميري"
+                        android:textColor="@color/on_surface_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
 
-                <TextView
-                    android:id="@+id/tvProfileBadge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_circle_primary"
-                    android:backgroundTint="@color/brand_primary_soft"
-                    android:paddingStart="14dp"
-                    android:paddingEnd="14dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="عضوية طبيبك الذهبية ⭐"
-                    android:textColor="@color/brand_primary_dark"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="12dp" />
+                    <TextView
+                        android:id="@+id/tvProfilePhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+967 771 234 567"
+                        android:textColor="@color/on_surface_dark_secondary"
+                        android:textSize="12.5sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_marginTop="2dp" />
+
+                    <TextView
+                        android:id="@+id/tvProfileBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_status_confirmed"
+                        android:backgroundTint="@color/brand_primary_soft"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:text="عضوية طبيبك الذهبية ⭐"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- 💳 بطاقة رصيد المحفظة الإلكترونية للمريض -->
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardPatientProfileWallet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="3dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/brand_stroke_alpha"
             app:cardBackgroundColor="@color/surface_dark_elevated">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="18dp">
+                android:background="@drawable/bg_card_3d_glass"
+                android:padding="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -141,17 +160,17 @@
                     android:gravity="center_vertical">
 
                     <FrameLayout
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
                         android:background="@drawable/bg_circle_primary"
-                        android:backgroundTint="#1A14B8A6">
+                        android:backgroundTint="@color/brand_primary_soft">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="💳"
-                            android:textSize="22sp" />
+                            android:textSize="18sp" />
                     </FrameLayout>
 
                     <LinearLayout
@@ -159,14 +178,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginStart="12dp">
+                        android:layout_marginStart="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="محفظتي الطبية"
                             android:textColor="@color/on_surface_dark"
-                            android:textSize="15sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -174,8 +193,8 @@
                             android:layout_height="wrap_content"
                             android:text="استخدم رصيدك لدفع الحجوزات أو استرجاعها"
                             android:textColor="@color/on_surface_dark_tertiary"
-                            android:textSize="11.5sp"
-                            android:layout_marginTop="2dp" />
+                            android:textSize="11sp"
+                            android:layout_marginTop="1dp" />
                     </LinearLayout>
 
                     <TextView
@@ -183,8 +202,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00 ر.ي"
-                        android:textColor="#10B981"
-                        android:textSize="17sp"
+                        android:textColor="@color/brand_success"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -192,60 +211,74 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="14dp">
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnViewWalletTransactions"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="42dp"
-                        android:layout_weight="1"
-                        android:text="سجل المعاملات والعمليات 📋"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:text="سجل العمليات وشحن المحفظة 📋"
                         android:textColor="@color/brand_primary"
-                        android:textSize="12sp"
-                        app:strokeColor="@color/brand_primary"
+                        android:textSize="11.5sp"
+                        android:textStyle="bold"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:strokeColor="@color/brand_stroke_alpha"
                         app:strokeWidth="1dp"
-                        app:cornerRadius="12dp" />
+                        app:cornerRadius="10dp" />
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Vital Health Info Grid -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- شبكة البيانات الصحية الأساسية الفاخرة والمنسقة -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="البيانات الصحية الأساسية"
-            android:textColor="@color/on_surface_dark"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="12dp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="البيانات الصحية الأساسية 🩺"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="14.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
+            <!-- فصيلة الدم -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginEnd="6dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
+                android:layout_marginEnd="4dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1.5dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/brand_stroke_alpha"
                 app:cardBackgroundColor="@color/surface_dark_elevated">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp"
+                    android:background="@drawable/bg_card_3d_glass"
+                    android:padding="10dp"
                     android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="فصيلة الدم"
+                        android:text="🩸 فصيلة الدم"
                         android:textColor="@color/on_surface_dark_tertiary"
                         android:textSize="11sp" />
 
@@ -255,33 +288,37 @@
                         android:layout_height="wrap_content"
                         android:text="O+"
                         android:textColor="@color/brand_primary"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="2dp" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <!-- المحافظة -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1.5dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/brand_stroke_alpha"
                 app:cardBackgroundColor="@color/surface_dark_elevated">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp"
+                    android:background="@drawable/bg_card_3d_glass"
+                    android:padding="10dp"
                     android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="المحافظة"
+                        android:text="📍 المحافظة"
                         android:textColor="@color/on_surface_dark_tertiary"
                         android:textSize="11sp" />
 
@@ -291,32 +328,38 @@
                         android:layout_height="wrap_content"
                         android:text="صنعاء"
                         android:textColor="@color/on_surface_dark"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
-                        android:layout_marginTop="4dp" />
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_marginTop="2dp" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <!-- العمر -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
+                android:layout_marginStart="4dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1.5dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/brand_stroke_alpha"
                 app:cardBackgroundColor="@color/surface_dark_elevated">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp"
+                    android:background="@drawable/bg_card_3d_glass"
+                    android:padding="10dp"
                     android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="العمر"
+                        android:text="🎂 العمر"
                         android:textColor="@color/on_surface_dark_tertiary"
                         android:textSize="11sp" />
 
@@ -326,11 +369,13 @@
                         android:layout_height="wrap_content"
                         android:text="28 سنة"
                         android:textColor="@color/on_surface_dark"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
-                        android:layout_marginTop="4dp" />
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_marginTop="2dp" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         <!-- 3D Actions Cards List -->

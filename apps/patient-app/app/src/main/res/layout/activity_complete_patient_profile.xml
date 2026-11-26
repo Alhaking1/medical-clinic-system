@@ -20,8 +20,8 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_arrow_back"
                 app:tint="@color/on_surface_dark"
@@ -30,10 +30,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="12dp"
                 android:text="إكمال بيانات الملف الشخصي"
-                android:textColor="@color/brand_primary_dark"
-                android:textSize="20sp"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="16.5sp"
                 android:textStyle="bold" />
 
         </androidx.appcompat.widget.Toolbar>
@@ -49,54 +49,58 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="16dp">
 
-            <!-- بطاقة التنبيه والإلزام -->
+            <!-- بطاقة التنبيه التوضيحية الفاخرة المدمجة -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp"
-                app:cardBackgroundColor="@color/banner_warning_bg"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1.5dp"
+                app:cardBackgroundColor="@color/surface_dark_elevated"
                 app:strokeWidth="1dp"
-                app:strokeColor="@color/amber_warning"
-                android:layout_marginBottom="20dp">
+                app:strokeColor="@color/brand_stroke_alpha"
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="16dp"
+                    android:background="@drawable/bg_card_3d_glass"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="⚠️"
-                        android:textSize="26sp" />
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_circle_primary"
+                        android:backgroundTint="@color/brand_primary_soft"
+                        android:gravity="center"
+                        android:text="📋"
+                        android:textSize="18sp" />
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginStart="12dp">
+                        android:layout_marginStart="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="إكمال الملف الطبي مطلوب"
-                            android:textColor="@color/banner_warning_text"
-                            android:textSize="16sp"
+                            android:text="إكمال الملف الطبي لضمان صحة الحجز"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="13.5sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="لضمان صحة حجزك لدى الطبيب وتوليد تذكرة الكشف الطبية، يجب إكمال بياناتك كاملة."
-                            android:textColor="@color/banner_warning_hint"
-                            android:textSize="13sp"
-                            android:layout_marginTop="3dp" />
+                            android:text="تُستخدم هذه البيانات لتوليد تذكرة الكشف وسجل المريض في العيادة"
+                            android:textColor="@color/on_surface_dark_tertiary"
+                            android:textSize="11sp"
+                            android:layout_marginTop="2dp" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -108,12 +112,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="الاسم الكامل (ثلاثي أو رباعي على الأقل) *"
-                app:boxCornerRadiusTopStart="14dp"
-                app:boxCornerRadiusTopEnd="14dp"
-                app:boxCornerRadiusBottomStart="14dp"
-                app:boxCornerRadiusBottomEnd="14dp"
-                app:helperText="يجب أن يتكون الاسم من 3 إلى 4 كلمات على الأقل"
-                android:layout_marginBottom="16dp">
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                android:layout_marginBottom="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etFullName"
@@ -132,13 +135,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="رقم الهاتف اليمني (9 أرقام) *"
-                app:boxCornerRadiusTopStart="14dp"
-                app:boxCornerRadiusTopEnd="14dp"
-                app:boxCornerRadiusBottomStart="14dp"
-                app:boxCornerRadiusBottomEnd="14dp"
-                app:helperText="يبدأ بـ 77 أو 78 أو 71 أو 73 أو 70"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
                 app:prefixText="+967 "
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPhone"
@@ -150,13 +152,13 @@
                     android:textColor="@color/on_surface_dark" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- صف العمر والمحافظة -->
+            <!-- صف العمر وفصيلة الدم والمحافظة منسق بدقة متناهية -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:baselineAligned="false"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
 
                 <!-- العمر -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -165,12 +167,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="4dp"
                     android:hint="العمر *"
-                    app:boxCornerRadiusTopStart="14dp"
-                    app:boxCornerRadiusTopEnd="14dp"
-                    app:boxCornerRadiusBottomStart="14dp"
-                    app:boxCornerRadiusBottomEnd="14dp">
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etAge"
@@ -181,6 +183,30 @@
                         android:textColor="@color/on_surface_dark" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- فصيلة الدم -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilBlood"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:hint="الفصيلة *"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/actvBlood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:text="O+"
+                        android:textColor="@color/on_surface_dark" />
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <!-- المحافظة -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilGovernorate"
@@ -188,12 +214,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.4"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="4dp"
                     android:hint="المحافظة *"
-                    app:boxCornerRadiusTopStart="14dp"
-                    app:boxCornerRadiusTopEnd="14dp"
-                    app:boxCornerRadiusBottomStart="14dp"
-                    app:boxCornerRadiusBottomEnd="14dp">
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp">
 
                     <AutoCompleteTextView
                         android:id="@+id/actvGovernorate"
@@ -205,66 +231,47 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
-            <!-- فصيلة الدم -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilBlood"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="فصيلة الدم *"
-                app:boxCornerRadiusTopStart="14dp"
-                app:boxCornerRadiusTopEnd="14dp"
-                app:boxCornerRadiusBottomStart="14dp"
-                app:boxCornerRadiusBottomEnd="14dp"
-                android:layout_marginBottom="24dp">
-
-                <AutoCompleteTextView
-                    android:id="@+id/actvBlood"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:text="O+"
-                    android:textColor="@color/on_surface_dark" />
-            </com.google.android.material.textfield.TextInputLayout>
-
             <!-- ربط حساب Google والبريد الإلكتروني -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="16dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="1dp"
                 app:cardBackgroundColor="@color/surface_dark_elevated"
                 app:strokeWidth="1dp"
-                app:strokeColor="@color/divider">
+                app:strokeColor="@color/brand_stroke_alpha">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:background="@drawable/bg_card_3d_glass"
+                    android:padding="12dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="البريد الإلكتروني وحساب Google 🌐"
                         android:textColor="@color/on_surface_dark"
-                        android:textSize="14sp"
+                        android:textSize="13.5sp"
                         android:textStyle="bold" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnConnectGoogle"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="42dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:text="ربط الحساب عبر Google 🇬"
                         android:textColor="@color/on_surface_dark"
-                        android:textSize="13sp"
+                        android:textSize="12.5sp"
                         android:textStyle="bold"
-                        app:cornerRadius="12dp"
-                        app:strokeColor="@color/divider" />
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:cornerRadius="10dp"
+                        app:strokeColor="@color/brand_stroke_alpha" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilEmail"
@@ -272,10 +279,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="البريد الإلكتروني (اختياري)"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusBottomEnd="12dp">
+                        app:boxCornerRadiusTopStart="10dp"
+                        app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusBottomStart="10dp"
+                        app:boxCornerRadiusBottomEnd="10dp">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etEmail"
@@ -295,13 +302,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="كلمة مرور الحساب (للاستعادة وتسجيل الدخول) *"
-                app:boxCornerRadiusTopStart="14dp"
-                app:boxCornerRadiusTopEnd="14dp"
-                app:boxCornerRadiusBottomStart="14dp"
-                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
                 app:passwordToggleEnabled="true"
-                app:helperText="6 خانات أو أرقام على الأقل — تُستخدم لاستعادة حسابك"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
@@ -318,12 +324,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="تأكيد كلمة المرور *"
-                app:boxCornerRadiusTopStart="14dp"
-                app:boxCornerRadiusTopEnd="14dp"
-                app:boxCornerRadiusBottomStart="14dp"
-                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
                 app:passwordToggleEnabled="true"
-                android:layout_marginBottom="24dp">
+                android:layout_marginBottom="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etConfirmPassword"
@@ -337,13 +343,15 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSaveProfile"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="50dp"
                 android:text="حفظ وتأكيد البيانات الطبية ✅"
                 android:textColor="#FFFFFF"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
                 app:backgroundTint="@color/brand_primary"
-                app:cornerRadius="16dp"
+                app:cornerRadius="14dp"
                 android:layout_marginBottom="16dp" />
 
             <ProgressBar

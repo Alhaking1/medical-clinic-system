@@ -86,6 +86,7 @@
     <color name="border_field">#E2E8F0</color>
     <color name="google_btn_bg">#FFFFFF</color>
     <color name="google_btn_border">#E2E8F0</color>
+    <color name="shimmer_element">#E2E8F0</color>
 
     <!-- ═══════════════════════════════════════════ -->
     <!-- Notification & Warning -->

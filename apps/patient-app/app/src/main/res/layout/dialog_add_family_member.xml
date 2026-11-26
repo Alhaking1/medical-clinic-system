@@ -4,27 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="16dp"
+    android:background="@color/surface_dark_elevated"
     android:layoutDirection="rtl">
 
-    <!-- Header Banner -->
+    <!-- بطاقة العنوان الفاخرة المدمجة -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="#ECFDF5"
-        android:paddingHorizontal="14dp"
-        android:paddingVertical="10dp"
-        android:layout_marginBottom="16dp">
+        android:background="@drawable/bg_pill_status_confirmed"
+        android:backgroundTint="@color/brand_primary_soft"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:layout_marginBottom="14dp">
 
         <TextView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="#D1FAE5"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_circle_primary"
+            android:backgroundTint="@color/brand_primary_light"
             android:gravity="center"
             android:text="👨‍👩‍👧"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_marginEnd="10dp" />
 
         <LinearLayout
@@ -37,82 +40,91 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="إضافة فرد عائلة للحساب"
-                android:textColor="#065F46"
-                android:textSize="14sp"
+                android:textColor="@color/brand_primary"
+                android:textSize="13.5sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="يمكنك حجز المواعيد ومتابعة السجل الطبي لهم بسهولة"
-                android:textColor="#047857"
-                android:textSize="11.5sp" />
+                android:text="لحجز المواعيد ومتابعة السجل الطبي للأسرة"
+                android:textColor="@color/on_surface_dark_secondary"
+                android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Patient Name Input -->
+    <!-- اسم فرد العائلة -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="الاسم الكامل للمريض (فرد العائلة) *"
-        android:textColor="#1F2937"
-        android:textSize="13sp"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="12.5sp"
         android:textStyle="bold"
-        android:layout_marginBottom="6dp" />
+        android:layout_marginBottom="4dp" />
 
     <EditText
         android:id="@+id/etFamilyName"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="46dp"
         android:background="@drawable/bg_input_field_luxury"
         android:hint="مثال: أحمد محمد علي"
-        android:textColor="#111827"
-        android:textColorHint="#9CA3AF"
-        android:textSize="14sp"
-        android:paddingHorizontal="16dp"
+        android:textColor="@color/on_surface_dark"
+        android:textColorHint="@color/on_surface_dark_tertiary"
+        android:textSize="13.5sp"
+        android:paddingHorizontal="14dp"
         android:inputType="textPersonName"
-        android:layout_marginBottom="14dp" />
+        android:layout_marginBottom="12dp" />
 
-    <!-- Relationship Spinner -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="صلة القرابة *"
-        android:textColor="#1F2937"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="6dp" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/bg_input_field_luxury"
-        android:layout_marginBottom="14dp">
-
-        <Spinner
-            android:id="@+id/spFamilyRelation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="14dp"
-            android:background="@android:color/transparent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="14dp"
-            android:text="▼"
-            android:textColor="#6B7280"
-            android:textSize="11sp" />
-    </FrameLayout>
-
-    <!-- Age and Gender Row -->
+    <!-- صف صلة القرابة والعمر جنباً إلى جنب بشكل متوازن -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:layout_marginBottom="12dp">
 
+        <!-- صلة القرابة -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:orientation="vertical"
+            android:layout_marginEnd="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="صلة القرابة *"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/bg_input_field_luxury">
+
+                <Spinner
+                    android:id="@+id/spFamilyRelation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="10dp"
+                    android:background="@android:color/transparent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:text="▼"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="11sp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- العمر -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -124,68 +136,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="العمر (بالسنوات)"
-                android:textColor="#1F2937"
-                android:textSize="13sp"
+                android:textColor="@color/on_surface_dark"
+                android:textSize="12.5sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="6dp" />
+                android:layout_marginBottom="4dp" />
 
             <EditText
                 android:id="@+id/etFamilyAge"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="46dp"
                 android:background="@drawable/bg_input_field_luxury"
                 android:hint="مثال: 7"
-                android:textColor="#111827"
-                android:textColorHint="#9CA3AF"
-                android:textSize="14sp"
-                android:paddingHorizontal="16dp"
+                android:textColor="@color/on_surface_dark"
+                android:textColorHint="@color/on_surface_dark_tertiary"
+                android:textSize="13.5sp"
+                android:paddingHorizontal="14dp"
                 android:inputType="number" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.2"
-            android:orientation="vertical"
-            android:layout_marginEnd="6dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="الجنس"
-                android:textColor="#1F2937"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="6dp" />
-
-            <RadioGroup
-                android:id="@+id/rgFamilyGender"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_input_field_luxury"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="8dp">
-
-                <RadioButton
-                    android:id="@+id/rbGenderMale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ذكر"
-                    android:textSize="13sp"
-                    android:textColor="#374151"
-                    android:checked="true"
-                    android:layout_marginStart="8dp" />
-
-                <RadioButton
-                    android:id="@+id/rbGenderFemale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="أنثى"
-                    android:textSize="13sp"
-                    android:textColor="#374151"
-                    android:layout_marginStart="14dp" />
-            </RadioGroup>
-        </LinearLayout>
     </LinearLayout>
+
+    <!-- تحديد الجنس (ذكر / أنثى) - صف مستقل وكامل لضمان عدم التفاف النص عمودياً -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="الجنس *"
+        android:textColor="@color/on_surface_dark"
+        android:textSize="12.5sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <RadioGroup
+        android:id="@+id/rgFamilyGender"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/bg_input_field_luxury"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="6dp"
+        android:layout_marginBottom="8dp">
+
+        <RadioButton
+            android:id="@+id/rbGenderMale"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|start"
+            android:text="ذكر 👨"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface_dark"
+            android:buttonTint="@color/brand_primary"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:checked="true"
+            android:paddingStart="6dp" />
+
+        <RadioButton
+            android:id="@+id/rbGenderFemale"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|start"
+            android:text="أنثى 👩"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface_dark"
+            android:buttonTint="@color/brand_primary"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:paddingStart="6dp" />
+    </RadioGroup>
 </LinearLayout>

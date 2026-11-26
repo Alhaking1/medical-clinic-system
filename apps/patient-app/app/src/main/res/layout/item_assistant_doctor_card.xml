@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="6dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="1.5dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/brand_stroke_alpha"
+    app:cardBackgroundColor="@color/surface_dark_elevated">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="12dp"
+        android:background="@drawable/bg_card_3d_glass"
+        android:padding="10dp"
         android:layoutDirection="rtl">
 
         <FrameLayout
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
             android:background="@drawable/bg_circle_soft_teal">
 
             <ImageView
                 android:id="@+id/ivDocCardAvatar"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_nav_profile"
                 app:tint="@color/brand_primary"
@@ -36,40 +40,45 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginStart="12dp">
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp">
 
             <TextView
                 android:id="@+id/tvDocCardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="د. أحمد محمد"
-                android:textColor="#0F172A"
+                android:textColor="@color/on_surface_dark"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
 
             <TextView
                 android:id="@+id/tvDocCardClinic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="عيادة النور • 4,500 ر.ي"
-                android:textColor="#0D9488"
-                android:textSize="12sp"
+                android:textColor="@color/brand_primary"
+                android:textSize="11.5sp"
                 android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:layout_marginTop="2dp" />
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBookDocCard"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="32dp"
             android:text="حجز موعد ❯"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             app:backgroundTint="@color/brand_primary"
-            app:cornerRadius="12dp"
-            android:paddingHorizontal="14dp"
+            app:cornerRadius="10dp"
+            android:paddingHorizontal="10dp"
             android:insetTop="0dp"
             android:insetBottom="0dp" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

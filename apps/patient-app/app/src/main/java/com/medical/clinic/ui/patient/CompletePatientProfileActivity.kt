@@ -148,10 +148,10 @@ class CompletePatientProfileActivity : AppCompatActivity() {
         val password = etPassword.text.toString().trim()
         val confirmPassword = etConfirmPassword.text.toString().trim()
 
-        // 1. التحقق من الاسم: ثلاثي أو رباعي على الأقل (3 كلمات على الأقل)
+        // 1. التحقق من الاسم: ثلاثي على الأقل
         val nameWords = fullName.split("\\s+".toRegex()).filter { it.isNotBlank() }
         if (nameWords.size < 3) {
-            tilFullName.error = "يجب إدخال الاسم كاملاً (ثلاثي أو رباعي على الأقل)"
+            tilFullName.error = "يجب أن يكون الاسم ثلاثي على الأقل"
             etFullName.requestFocus()
             return
         }
@@ -159,7 +159,7 @@ class CompletePatientProfileActivity : AppCompatActivity() {
         // 2. التحقق من الهاتف
         val yemeniPhoneRegex = Regex("^(70|71|73|77|78)\\d{7}$")
         if (!yemeniPhoneRegex.matches(phone)) {
-            tilPhone.error = "رقم الهاتف غير صالح. يجب أن يبدأ بـ 77 أو 78 أو 71 أو 73 أو 70 ويتكون من 9 أرقام"
+            tilPhone.error = "يرجى إدخال رقم هاتف يمني صحيح (9 أرقام)"
             etPhone.requestFocus()
             return
         }
@@ -174,7 +174,7 @@ class CompletePatientProfileActivity : AppCompatActivity() {
 
         // 4. التحقق من كلمة المرور وتأكيدها لاستعادة الحساب
         if (password.length < 6) {
-            tilPassword.error = "يجب إدخال كلمة مرور من 6 خانات أو أرقام على الأقل لاستعادة الحساب"
+            tilPassword.error = "يجب ألا تقل كلمة المرور عن 6 خانات"
             etPassword.requestFocus()
             return
         }
