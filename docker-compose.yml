@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  medical-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: medical-clinic-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - NODE_ENV=production
+      - JWT_SECRET=change-this-ultra-secure-key-in-production-2026
+      - JWT_EXPIRES_IN=7d
+      - DATABASE_PATH=/app/data/medical.db
+      - UPLOAD_PATH=/app/uploads
+    volumes:
+      - medical-data:/app/data
+      - medical-uploads:/app/uploads
+      - medical-logs:/app/logs
+
+volumes:
+  medical-data:
+    name: medical_clinic_db_data
+  medical-uploads:
+    name: medical_clinic_uploads
+  medical-logs:
+    name: medical_clinic_logs
