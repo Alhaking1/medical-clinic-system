@@ -567,4 +567,81 @@ router.get('/live-status/:appointmentId', authenticate, (req, res) => {
   }
 });
 
+
+// ═══════════════════════════════════════════
+// 📡 Real-time SSE Live Queue Stream
+// ═══════════════════════════════════════════
+router.get('/stream/:appointmentId', (req, res) => {
+  const apptId = req.params.appointmentId;
+
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders?.();
+
+  const sendQueueUpdate = () => {
+    try {
+      const today = new Date().toISOString().split('T')[0];
+      const appt = db.prepare(`
+        SELECT a.*, d.full_name as doctor_name, d.clinic_name
+        FROM appointments a
+        LEFT JOIN doctors d ON a.doctor_id = d.id
+        WHERE a.id = ?
+      `).get(apptId);
+
+      if (!appt) {
+        res.write(`data: ${JSON.stringify({ error: 'الحجز غير موجود' })}\n\n`);
+        return;
+      }
+
+      const inProgressRow = db.prepare(`
+        SELECT queue_number FROM queue
+        WHERE doctor_id = ? AND status = 'in_progress' AND DATE(checked_in_at) = DATE(?)
+        ORDER BY queue_number ASC LIMIT 1
+      `).get(appt.doctor_id, today);
+
+      const maxDoneRow = db.prepare(`
+        SELECT MAX(queue_number) as max_done FROM queue
+        WHERE doctor_id = ? AND status = 'done' AND DATE(checked_in_at) = DATE(?)
+      `).get(appt.doctor_id, today);
+
+      const currentServing = inProgressRow?.queue_number || ((maxDoneRow?.max_done || 0) + 1);
+      const myQueue = appt.queue_number || 1;
+      const patientsAhead = Math.max(0, myQueue - currentServing);
+      const estimatedWaitMinutes = patientsAhead * 12;
+
+      let statusText = 'قيد الانتظار';
+      if (patientsAhead === 0) statusText = 'حان دورك الآن! يرجى الدخول للطبيب 🏥';
+      else if (patientsAhead === 1) statusText = 'أنت المريض التالي! استعد عند الباب ⏳';
+      else statusText = `يتبقى ${patientsAhead} مرضى قبل دورك ⏱️`;
+
+      const payload = {
+        appointment_id: apptId,
+        my_queue_number: myQueue,
+        current_serving_number: currentServing,
+        patients_ahead: patientsAhead,
+        estimated_wait_minutes: estimatedWaitMinutes,
+        status_text: statusText,
+        updated_at: new Date().toISOString()
+      };
+
+      res.write(`data: ${JSON.stringify(payload)}\n\n`);
+    } catch (e) {
+      console.error('SSE Stream Error:', e);
+    }
+  };
+
+  // Send initial data immediately
+  sendQueueUpdate();
+
+  // Send heartbeat / updates every 5 seconds
+  const intervalId = setInterval(sendQueueUpdate, 5000);
+
+  req.on('close', () => {
+    clearInterval(intervalId);
+    res.end();
+  });
+});
+
 export default router;
+
