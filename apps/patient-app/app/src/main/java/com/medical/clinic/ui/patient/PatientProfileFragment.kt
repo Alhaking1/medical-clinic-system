@@ -67,7 +67,6 @@ class PatientProfileFragment : Fragment() {
     private lateinit var rowEditProfile: View
     private lateinit var rowSupport: View
     private lateinit var rowPrivacyPolicy: View
-    private lateinit var rowEmergency: View
     private lateinit var rowAbout: View
     private lateinit var rowDeleteAccount: View
     private lateinit var layoutAdvancedOptionsHeader: View
@@ -97,7 +96,6 @@ class PatientProfileFragment : Fragment() {
         rowEditProfile = view.findViewById(R.id.rowEditProfile)
         rowSupport = view.findViewById(R.id.rowSupport)
         rowPrivacyPolicy = view.findViewById(R.id.rowPrivacyPolicy)
-        rowEmergency = view.findViewById(R.id.rowEmergency)
         rowAbout = view.findViewById(R.id.rowAbout)
         rowDeleteAccount = view.findViewById(R.id.rowDeleteAccount)
         layoutAdvancedOptionsHeader = view.findViewById(R.id.layoutAdvancedOptionsHeader)
@@ -216,11 +214,6 @@ class PatientProfileFragment : Fragment() {
                 layoutAdvancedOptionsContent.visibility = View.VISIBLE
                 tvAdvancedArrow.text = "▲"
             }
-        }
-
-        rowEmergency.setOnClickListener {
-            val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:195"))
-            startActivity(intent)
         }
 
         // الدعم الفني وخدمة العملاء والتحويلات على الرقم 781238648

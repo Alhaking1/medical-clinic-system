@@ -138,18 +138,18 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDoctorChat"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="10dp"
                 android:text="محادثة فورية مع الطبيب / العيادة 💬"
-                android:textColor="@color/brand_primary_light"
-                android:textSize="14sp"
+                android:textColor="@color/brand_primary"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 app:strokeColor="@color/brand_primary_light"
-                app:strokeWidth="1.5dp"
+                app:strokeWidth="1.2dp"
                 app:cornerRadius="12dp"
-                app:backgroundTint="#F0FDFA"
+                app:backgroundTint="@color/brand_primary_soft"
                 app:icon="@drawable/ic_chat"
-                app:iconTint="#0D9488"
+                app:iconTint="@color/brand_primary"
                 app:iconGravity="textStart" />
 
             <!-- فترات دوام الطبيب وتاريخ الحجز وسعة المقاعد -->
@@ -224,15 +224,14 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnNextBookingDate"
-                            
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_weight="1"
                             android:layout_marginStart="4dp"
                             android:text="اليوم التالي ⏭️"
                             android:textSize="12sp"
-                            android:textColor="@color/brand_primary_light"
-                            app:backgroundTint="#CCFBF1"
+                            android:textColor="@color/brand_primary"
+                            app:backgroundTint="@color/brand_primary_soft"
                             app:cornerRadius="10dp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp" />
@@ -370,10 +369,12 @@
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
+                app:strokeWidth="1.2dp"
+                app:strokeColor="@color/brand_stroke_alpha"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/brand_secondary_soft">
+                app:cardBackgroundColor="@color/surface_dark_elevated">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -392,20 +393,21 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="⭐ الحجز الذهبي: أسبقية الدخول بالدور + خصم 5%"
-                            android:textColor="@color/brand_secondary_dark"
+                            android:textColor="@color/brand_secondary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#D1FAE5"
+                            android:background="@drawable/bg_tab_pill_inactive"
+                            android:backgroundTint="@color/brand_secondary_soft"
                             android:paddingStart="8dp"
                             android:paddingEnd="8dp"
                             android:paddingTop="3dp"
                             android:paddingBottom="3dp"
-                            android:text="📋 انقر لنسخ الرقم"
-                            android:textColor="#065F46"
+                            android:text="📋 انقر للنسخ"
+                            android:textColor="@color/brand_secondary_dark"
                             android:textSize="11sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -476,9 +478,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="👑 ميزة المقاعد الأولية (الحجز الذهبي VIP):"
-                    android:textColor="#92400E"
+                    android:textColor="@color/gold_star"
                     android:textSize="13sp"
-                    android:textStyle="bold" />
                     android:textStyle="bold" />
 
                 <TextView
@@ -486,7 +487,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="عند سداد الحوالة وإدخال رقم الحوالة أدناه، سيتم منحك الأولوية للمقاعد الأولية (الحجز الذهبي) للدخول أولاً عند تأكيد ومراجعة الإدارة للدفع! وفي حال الدفع نقداً، يكون دورك حسب الترتيب المتسلسل العادي."
-                    android:textColor="@color/banner_warning_hint"
+                    android:textColor="@color/on_surface_dark_secondary"
                     android:textSize="11sp" />
             </LinearLayout>
 

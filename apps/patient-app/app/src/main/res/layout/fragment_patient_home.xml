@@ -50,7 +50,7 @@
                                 android:id="@+id/ivPatientAvatar"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/ic_tabeebak_logo"
+                                android:src="@drawable/ic_avatar_patient_luxury"
                                 android:scaleType="centerInside"
                                 android:contentDescription="صورة المريض" />
                         </FrameLayout>
@@ -392,42 +392,56 @@
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
                         android:checked="true"
-                        android:text="الكل" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipAden"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="38dp"
-                        android:text="عدن" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipTaiz"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="38dp"
-                        android:text="تعز" />
+                        android:text="كل المحافظات 🇾🇪"
+                        android:textColor="@color/on_surface_dark" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipSanaa"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
-                        android:text="صنعاء" />
+                        android:text="صنعاء"
+                        android:textColor="@color/on_surface_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipAden"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="عدن"
+                        android:textColor="@color/on_surface_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTaiz"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="تعز"
+                        android:textColor="@color/on_surface_dark" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipHadramout"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
-                        android:text="الحديدة" />
+                        android:text="حضرموت"
+                        android:textColor="@color/on_surface_dark" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipIbb"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
-                        android:text="إب" />
+                        android:text="إب"
+                        android:textColor="@color/on_surface_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipHodeidah"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="الحديدة"
+                        android:textColor="@color/on_surface_dark" />
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
 

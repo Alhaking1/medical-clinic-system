@@ -119,59 +119,92 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             app:cornerRadius="16dp"
-            app:backgroundTint="#0F766E"
+            app:backgroundTint="@color/brand_primary"
             app:elevation="3dp" />
 
-        <!-- 4. زر دخول بالبصمة فقط -->
+        <!-- فاصل أنيق بين تسجيل الدخول التقليدي والخيارات السريعة -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="14dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="أو المتابعة السريعة عبر"
+                android:textColor="@color/on_surface_dark_tertiary"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/divider" />
+        </LinearLayout>
+
+        <!-- 4. زر الدخول عبر Google بالألوان الأصلية الأربعة -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="متابعة عبر حساب Google"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface_dark"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_google_logo"
+            app:iconTint="@null"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:iconSize="22dp"
+            app:strokeColor="@color/border_field"
+            app:strokeWidth="1.2dp"
+            app:backgroundTint="@color/surface_dark_elevated"
+            app:elevation="2dp" />
+
+        <!-- 5. زر الدخول بالبصمة الحيوية الفاخر -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBiometricLogin"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginTop="12dp"
-            android:text="دخول بالبصمة فقط"
+            android:layout_marginTop="10dp"
+            android:text="تسجيل الدخول السريع ببصمة الإصبع"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/brand_primary_dark"
+            android:textColor="@color/brand_primary"
             app:cornerRadius="16dp"
             app:icon="@drawable/ic_fingerprint"
             app:iconGravity="textStart"
             app:iconTint="@color/brand_primary"
             app:iconPadding="10dp"
-            app:strokeColor="@color/brand_primary"
-            app:strokeWidth="1.5dp"
-            app:backgroundTint="@color/surface_dark_elevated" />
+            app:iconSize="22dp"
+            app:strokeColor="@color/brand_primary_light"
+            app:strokeWidth="1.2dp"
+            app:backgroundTint="@color/brand_primary_soft" />
 
-        <!-- 5. زر الدخول عبر Google -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGoogleSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="12dp"
-            android:text="دخول عبر جوجل"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/on_surface_dark_secondary"
-            app:cornerRadius="16dp"
-            app:icon="@drawable/ic_google_logo"
-            app:iconGravity="textStart"
-            app:iconPadding="12dp"
-            app:strokeColor="@color/google_btn_border"
-            app:strokeWidth="1dp"
-            app:backgroundTint="@color/google_btn_bg" />
-
-        <!-- 6. زر تصفح بدون حساب (دخول كزائر) -->
+        <!-- 6. زر تصفح بدون حساب (دخول كزائر بهدوء وأناقة) -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGuestLogin"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
             android:layout_marginTop="12dp"
-            android:text="تسجيل دخول بدون حساب (تصفح كزائر)"
+            android:text="تصفح العيادات والخدمات كزائر  ❯"
             android:textSize="13sp"
             android:textStyle="bold"
-            android:textColor="@color/on_surface_dark_tertiary"
-            app:cornerRadius="16dp"
-            app:strokeColor="@color/border_field"
-            app:strokeWidth="1dp"
+            android:textColor="@color/on_surface_dark_secondary"
+            app:cornerRadius="12dp"
+            app:strokeWidth="0dp"
             app:backgroundTint="@android:color/transparent" />
 
         <!-- مؤشر التحميل -->

@@ -207,12 +207,10 @@ class LoginActivity : AppCompatActivity() {
                     // إذا كان للمريض جلسة سابقة محفوظة نتوجه مباشرة
                     val savedToken = sessionManager.getToken()
                     if (!savedToken.isNullOrBlank()) {
-                        Toast.makeText(this@LoginActivity, "تم التحقق بالبصمة بنجاح!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, "تم التحقق بالبصمة بنجاح! مرحباً بعودتك", Toast.LENGTH_SHORT).show()
                         navigateToHome()
                     } else {
-                        // دخول سريع كزائر موثق بالبصمة
-                        Toast.makeText(this@LoginActivity, "مرحباً بك عبر التحقق الحيوي", Toast.LENGTH_SHORT).show()
-                        navigateToHome()
+                        Toast.makeText(this@LoginActivity, "تم توثيق البصمة بنجاح! يرجى تسجيل الدخول برقمك لربط بصمتك بحسابك للمرات القادمة", Toast.LENGTH_LONG).show()
                     }
                 }
 

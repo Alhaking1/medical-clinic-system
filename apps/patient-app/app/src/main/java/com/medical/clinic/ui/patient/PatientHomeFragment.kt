@@ -224,6 +224,7 @@ class PatientHomeFragment : Fragment() {
                 checkedIds.contains(R.id.chipTaiz) -> "تعز"
                 checkedIds.contains(R.id.chipHadramout) -> "حضرموت"
                 checkedIds.contains(R.id.chipIbb) -> "إب"
+                checkedIds.contains(R.id.chipHodeidah) -> "الحديدة"
                 else -> null
             }
             filterData(etSearch.text?.toString())
