@@ -52,10 +52,11 @@ class PatientRecordsFragment : Fragment() {
         swipeRefresh?.setColorSchemeResources(R.color.brand_primary)
         swipeRefresh?.setOnRefreshListener { loadRecords() }
 
-        view.findViewById<View>(R.id.btnEmptyAddRecord)?.setOnClickListener {
-            // إضافة سجل جديد أو توجيه
-            android.widget.Toast.makeText(requireContext(), "يمكنك طلب إضافة تقاريرك الطبية مباشرة من عيادتك أو الطبيب المعالج", android.widget.Toast.LENGTH_LONG).show()
+        val onAddClick = View.OnClickListener {
+            android.widget.Toast.makeText(requireContext(), "يتم تسجيل وإصدار تقاريرك الطبية والروشتات تلقائياً من قبل عيادتك وطبيبك المعالج 🩺", android.widget.Toast.LENGTH_LONG).show()
         }
+        view.findViewById<View>(R.id.btnEmptyAddRecord)?.setOnClickListener(onAddClick)
+        view.findViewById<View>(R.id.btnHeaderAddRecord)?.setOnClickListener(onAddClick)
 
         recordsAdapter = RecordsAdapter()
         rvRecords.layoutManager = LinearLayoutManager(requireContext())
@@ -106,7 +107,6 @@ class PatientRecordsFragment : Fragment() {
                     recordsAdapter.updateList(allRecords)
                     sessionManager.saveString("cached_patient_records", com.google.gson.Gson().toJson(allRecords))
                     layoutEmptyRecords?.visibility = if (allRecords.isEmpty()) View.VISIBLE else View.GONE
-                swipeRefresh?.isRefreshing = false
                 } else if (allRecords.isEmpty()) {
                     allRecords = emptyList()
                     recordsAdapter.updateList(emptyList())
@@ -118,6 +118,8 @@ class PatientRecordsFragment : Fragment() {
                     recordsAdapter.updateList(emptyList())
                     layoutEmptyRecords?.visibility = View.VISIBLE
                 }
+            } finally {
+                swipeRefresh?.isRefreshing = false
             }
         }
     }
