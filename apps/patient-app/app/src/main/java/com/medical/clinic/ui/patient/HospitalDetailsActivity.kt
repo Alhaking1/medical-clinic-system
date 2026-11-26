@@ -65,6 +65,14 @@ class HospitalDetailsActivity : AppCompatActivity() {
         }
 
         btnCall.setOnClickListener {
+            val phone = hospital?.phone
+            if (!phone.isNullOrBlank()) {
+                val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phone"))
+                try {
+                    startActivity(dialIntent)
+                    return@setOnClickListener
+                } catch (_: Exception) {}
+            }
             val hospName = hospital?.name ?: "المستشفى"
             val waUri = Uri.parse("https://wa.me/967781238648?text=" + Uri.encode("مرحباً خدمة عملاء طبيبك، أحتاج استفسار بخصوص الحجز في $hospName"))
             try {
@@ -75,7 +83,14 @@ class HospitalDetailsActivity : AppCompatActivity() {
         }
 
         btnMap.setOnClickListener {
-            val query = hospital?.name ?: "مستشفى في اليمن"
+            val mapsUrl = hospital?.googleMapsUrl
+            if (!mapsUrl.isNullOrBlank()) {
+                try {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(mapsUrl)))
+                    return@setOnClickListener
+                } catch (_: Exception) {}
+            }
+            val query = listOfNotNull(hospital?.name, hospital?.governorate, hospital?.address).joinToString(" ")
             val mapsUri = Uri.parse("geo:0,0?q=" + Uri.encode(query))
             try {
                 val mapIntent = Intent(Intent.ACTION_VIEW, mapsUri)
