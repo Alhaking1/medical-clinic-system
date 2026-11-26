@@ -1,66 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="@color/surface_dark_elevated">
+    app:cardCornerRadius="24dp"
+    app:cardElevation="12dp"
+    app:cardBackgroundColor="@color/white">
 
-    <!-- أيقونة -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="👋"
-        android:textSize="48sp" />
-
-    <!-- العنوان -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="مرحباً بك!"
-        android:textColor="@color/on_surface_dark"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="26dp"
+        android:gravity="center_horizontal"
+        android:layoutDirection="rtl">
 
-    <!-- الوصف -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:lineSpacingExtra="3dp"
-        android:text="أكمل بياناتك للاستفادة من جميع مميزات التطبيق"
-        android:textColor="@color/on_surface_dark_secondary"
-        android:textSize="14sp" />
+        <!-- Animated / Soft Badge Circle -->
+        <FrameLayout
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:background="@drawable/bg_circle_soft_teal"
+            android:layout_marginBottom="16dp">
 
-    <!-- زر إكمال الآن -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCompleteNow"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="24dp"
-        android:text="✏️ إكمال البيانات الآن"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:cornerRadius="14dp"
-        app:backgroundTint="@color/brand_primary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="👋"
+                android:textSize="32sp" />
+        </FrameLayout>
 
-    <!-- زر لاحقاً -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLater"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="10dp"
-        android:text="⏭️ الإكمال لاحقاً"
-        android:textColor="@color/brand_primary"
-        android:textSize="15sp"
-        app:cornerRadius="14dp"
-        app:strokeColor="@color/brand_primary"
-        app:strokeWidth="1.5dp" />
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مرحباً بك في طبيبك!"
+            android:textColor="#0F172A"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="أكمل بياناتك الصحية لتسهيل حجز المواعيد والحصول على تجربة استشارية متكاملة"
+            android:textColor="#64748B"
+            android:textSize="13.5sp" />
+
+        <!-- Complete Now Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCompleteNow"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:text="✏️ إكمال البيانات الآن"
+            android:textColor="@color/white"
+            android:textSize="14.5sp"
+            android:textStyle="bold"
+            app:cornerRadius="14dp"
+            app:backgroundTint="@color/brand_primary" />
+
+        <!-- Later Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLater"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="⏭️ تذكيري لاحقاً"
+            android:textColor="#64748B"
+            android:textSize="14sp"
+            app:cornerRadius="14dp"
+            app:strokeColor="#CBD5E1"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
