@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:8080';
 
 describe('🛡️ GAP 3: IDOR Security Tests', () => {
   it('prevents a patient from viewing another patient appointment (IDOR check on /appointments/:id)', async () => {

@@ -7,10 +7,9 @@ dotenv.config();
 let app;
 
 describe('🛡️ Comprehensive Security Test Suite', () => {
-  const BASE_URL = 'http://localhost:8000';
+  const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:8080';
 
   describe('1. Authentication Middleware & Signature Integrity', () => {
-    const BASE_URL = 'http://localhost:8000';
 
     it('rejects unauthenticated request to protected endpoint (HTTP 401)', async () => {
       const res = await fetch(`${BASE_URL}/api/v1/appointments`, {
@@ -75,8 +74,6 @@ describe('🛡️ Comprehensive Security Test Suite', () => {
   });
 
   describe('2. Security Headers & Healthcheck', () => {
-    const BASE_URL = 'http://localhost:8000';
-
     it('returns healthy status and 200 on /api/v1/health', async () => {
       const res = await fetch(`${BASE_URL}/api/v1/health`);
       expect(res.status).toBe(200);

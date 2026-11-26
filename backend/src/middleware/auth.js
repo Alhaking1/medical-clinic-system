@@ -55,7 +55,11 @@ export function authenticate(req, res, next) {
               algorithms: ['HS256'],
               ignoreExpiration: true,
             });
-            // فترة سماح لجلسات الهواتف المحمولة طالما التوقيع سليم 100%
+            // إذا كان التوكن منتهي الصلاحية بأكثر من 15 دقيقة، يُرفض كمنتهي
+            const now = Math.floor(Date.now() / 1000);
+            if (expDecoded.exp && (now - expDecoded.exp > 900)) {
+              continue;
+            }
             decoded = expDecoded;
             verified = true;
             break;

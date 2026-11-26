@@ -5,7 +5,7 @@ import db from '../../src/config/database.js';
 
 dotenv.config();
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:8080';
 
 describe('🛡️ VERIFICATION 2: Extended Security Suite', () => {
 
