@@ -1,0 +1,268 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: 'Almarai', 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-size: 14px;
+    direction: rtl;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  html.dark body {
+    background-color: #0B1120;
+    color: #F8FAFC;
+  }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 148, 136, 0.6);
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Executive Balanced Sizing & Natural Proportions
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Balanced Cards */
+main .bg-white {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+  border-radius: 14px !important;
+  color: #0F172A !important;
+}
+
+html.dark main .bg-white {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4) !important;
+  color: #F8FAFC !important;
+}
+
+/* Balanced Form Inputs & Standard 38px Height */
+main input[type="text"],
+main input[type="search"],
+main input[type="password"],
+main input[type="email"],
+main input[type="number"],
+main input[type="date"],
+main select {
+  height: 38px !important;
+  min-height: 38px !important;
+  padding: 6px 12px !important;
+  font-size: 0.875rem !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 10px !important;
+  color: #0F172A !important;
+  transition: all 0.15s ease-in-out !important;
+}
+
+html.dark main input[type="text"],
+html.dark main input[type="search"],
+html.dark main input[type="password"],
+html.dark main input[type="email"],
+html.dark main input[type="number"],
+html.dark main input[type="date"],
+html.dark main select {
+  background-color: #070D18 !important;
+  border: 1px solid #334155 !important;
+  color: #F8FAFC !important;
+}
+
+main input:focus,
+main select:focus {
+  border-color: #0D9488 !important;
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.2) !important;
+  outline: none !important;
+}
+
+/* Balanced Table Dimensions (Clean & Natural) */
+main table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+main table thead th {
+  background-color: #F8FAFC !important;
+  color: #475569 !important;
+  font-size: 0.775rem !important;
+  font-weight: 700 !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  white-space: nowrap !important;
+}
+
+html.dark main table thead th {
+  background-color: #070D18 !important;
+  color: #94A3B8 !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+
+main table tbody td {
+  padding: 10px 14px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  color: #1E293B !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+  vertical-align: middle !important;
+}
+
+html.dark main table tbody td {
+  color: #E2E8F0 !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+
+main table tbody tr:hover td {
+  background-color: #F8FAFC !important;
+}
+
+html.dark main table tbody tr:hover td {
+  background-color: #1E293B !important;
+}
+
+/* Natural Button Sizes */
+main button,
+main a.inline-flex {
+  font-size: 0.825rem !important;
+  font-weight: 600 !important;
+}
+
+/* Clear, Neat Badges */
+main .bg-green-100,
+main .bg-emerald-100,
+main .bg-green-50,
+main .bg-emerald-50 {
+  background-color: #ECFDF5 !important;
+  color: #047857 !important;
+  border: 1px solid #A7F3D0 !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+}
+
+html.dark main .bg-green-100,
+html.dark main .bg-emerald-100,
+html.dark main .bg-green-50,
+html.dark main .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34D399 !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+}
+
+main .bg-amber-100,
+main .bg-yellow-100,
+main .bg-amber-50,
+main .bg-yellow-50 {
+  background-color: #FFFBEB !important;
+  color: #B45309 !important;
+  border: 1px solid #FDE68A !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+}
+
+html.dark main .bg-amber-100,
+html.dark main .bg-yellow-100,
+html.dark main .bg-amber-50,
+html.dark main .bg-yellow-50 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+}
+
+main .bg-red-100,
+main .bg-rose-100,
+main .bg-red-50,
+main .bg-rose-50 {
+  background-color: #FEF2F2 !important;
+  color: #B91C1C !important;
+  border: 1px solid #FECACA !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+}
+
+html.dark main .bg-red-100,
+html.dark main .bg-rose-100,
+html.dark main .bg-red-50,
+html.dark main .bg-rose-50 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #F87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+}
+
+main .bg-purple-100,
+main .bg-purple-50 {
+  background-color: #FAF5FF !important;
+  color: #6D28D9 !important;
+  border: 1px solid #E9D5FF !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+}
+
+html.dark main .bg-purple-100,
+html.dark main .bg-purple-50 {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+  color: #C084FC !important;
+  border: 1px solid rgba(168, 85, 247, 0.35) !important;
+}
+
+main .bg-teal-100,
+main .bg-teal-50,
+main .bg-blue-100,
+main .bg-blue-50 {
+  background-color: #F0FDFA !important;
+  color: #0F766E !important;
+  border: 1px solid #CCFBF1 !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+}
+
+html.dark main .bg-teal-100,
+html.dark main .bg-teal-50,
+html.dark main .bg-blue-100,
+html.dark main .bg-blue-50 {
+  background-color: rgba(20, 184, 166, 0.15) !important;
+  color: #2DD4BF !important;
+  border: 1px solid rgba(20, 184, 166, 0.35) !important;
+}
