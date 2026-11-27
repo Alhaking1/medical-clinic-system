@@ -97,18 +97,18 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-5 py-2.5 sticky top-0 z-30 shadow-xs transition-colors duration-200">
+    <header className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/90 dark:border-slate-800 px-5 py-2.5 sticky top-0 z-30 shadow-[0_1px_6px_rgba(0,0,0,0.02)] transition-colors duration-200 select-none">
       <div className="flex items-center justify-between gap-3">
         {/* البحث السريع الذكي */}
         <div className="flex-1 max-w-sm">
           <div className="relative">
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-slate-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="ابحث عن طبيب، مريض، عيادة..."
-              className="w-full pr-9 pl-3 py-1.5 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium text-slate-800 dark:text-white focus:bg-white dark:focus:bg-slate-950 focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition placeholder:text-slate-400"
+              className="w-full pr-9 pl-3 py-1.5 bg-slate-100/70 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-xs font-semibold text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-950 focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition placeholder:text-slate-400 dark:placeholder:text-slate-500"
             />
           </div>
         </div>
@@ -116,34 +116,34 @@ export default function Header() {
         {/* أدوات الهيدر والساعة والتنبيهات */}
         <div className="flex items-center gap-2">
           {/* التاريخ والوقت الحي بتوقيت اليمن */}
-          <div className="hidden lg:flex items-center gap-2 px-2.5 py-1.5 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-700/80 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300">
+          <div className="hidden lg:flex items-center gap-2 px-2.5 py-1.5 bg-slate-100/70 dark:bg-slate-950/80 border border-slate-200/80 dark:border-slate-800 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300">
             <Clock className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
             <span>{currentDate}</span>
-            <span className="text-slate-300 dark:text-slate-600">|</span>
-            <span className="text-teal-700 dark:text-teal-300 font-bold">{currentTime}</span>
+            <span className="text-slate-300 dark:text-slate-700">|</span>
+            <span className="text-teal-700 dark:text-teal-300 font-extrabold">{currentTime}</span>
           </div>
 
           {/* مبدل وضع النهار / وضع الليل */}
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold transition shadow-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-100/80 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-extrabold transition shadow-2xs cursor-pointer"
             title={theme === 'dark' ? 'التحويل إلى وضع النهار ☀️' : 'التحويل إلى وضع الليل 🌙'}
           >
             {theme === 'dark' ? (
               <>
                 <Sun className="w-3.5 h-3.5 text-amber-400" />
-                <span className="hidden sm:inline">النهار</span>
+                <span className="hidden sm:inline">نهار</span>
               </>
             ) : (
               <>
                 <Moon className="w-3.5 h-3.5 text-indigo-600" />
-                <span className="hidden sm:inline">الليل</span>
+                <span className="hidden sm:inline">ليل</span>
               </>
             )}
           </button>
 
           {/* حالة السيرفر وقاعدة البيانات */}
-          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 dark:bg-emerald-500/15 border border-emerald-200 dark:border-emerald-500/40 rounded-lg text-xs font-bold text-emerald-700 dark:text-emerald-300">
+          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 dark:bg-emerald-500/15 border border-emerald-200 dark:border-emerald-500/40 rounded-xl text-xs font-bold text-emerald-800 dark:text-emerald-300">
             <Database className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span>متصل</span>
           </div>
@@ -151,7 +151,7 @@ export default function Header() {
           {/* زر إضافة سريع */}
           <Link
             to="/doctors/add"
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-bold transition shadow-xs"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-l from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white rounded-xl text-xs font-extrabold transition shadow-xs"
           >
             <PlusCircle className="w-3.5 h-3.5" />
             <span>إضافة طبيب</span>
@@ -160,10 +160,10 @@ export default function Header() {
           {/* 📢 زر إرسال إشعار عام */}
           <button
             onClick={() => setShowBroadcastModal(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-amber-50 dark:bg-amber-500/20 hover:bg-amber-100 dark:hover:bg-amber-500/30 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-500/40 rounded-lg text-xs font-bold transition shadow-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-amber-50 dark:bg-amber-500/15 hover:bg-amber-100 dark:hover:bg-amber-500/25 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-500/40 rounded-xl text-xs font-extrabold transition shadow-2xs cursor-pointer"
             title="إرسال إشعار عام لجميع المرضى أو الأطباء أو السكرتيرات"
           >
-            <Megaphone className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
+            <Megaphone className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
             <span className="hidden sm:inline">إشعار</span>
           </button>
 
@@ -171,12 +171,12 @@ export default function Header() {
           <div className="relative">
             <button
               onClick={() => setShowNotifications(!showNotifications)}
-              className="relative p-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 transition"
+              className="relative p-2 text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 transition cursor-pointer"
               title="مركز التنبيهات"
             >
-              <Bell className="w-4 h-4" />
+              <Bell className="w-4 h-4 stroke-[2.2]" />
               {(pendingCount + pendingWalletCount) > 0 && (
-                <span className="absolute -top-1 -right-1 px-1.5 py-0.2 text-[10px] font-bold bg-rose-500 text-white rounded-full">
+                <span className="absolute -top-1 -right-1 px-1.5 py-0.2 text-[10px] font-black bg-rose-600 text-white rounded-full shadow-xs animate-pulse">
                   {pendingCount + pendingWalletCount}
                 </span>
               )}
@@ -184,13 +184,13 @@ export default function Header() {
 
             {/* نافذة التنبيهات المنسدلة */}
             {showNotifications && (
-              <div className="absolute left-0 mt-2 w-80 bg-slate-900 border border-slate-700/90 rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                  <h4 className="text-xs font-bold text-white flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-teal-400" />
+              <div className="absolute left-0 mt-2 w-84 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                  <h4 className="text-xs font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-teal-600 dark:text-teal-400" />
                     <span>تنبيهات الإدارة والعمليات</span>
                   </h4>
-                  <span className="text-[10px] font-bold bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded-full border border-teal-500/30">
+                  <span className="text-[10px] font-extrabold bg-teal-50 dark:bg-teal-500/20 text-teal-700 dark:text-teal-300 px-2 py-0.5 rounded-full border border-teal-200 dark:border-teal-500/30">
                     {pendingCount + pendingWalletCount} بانتظار الإجراء
                   </span>
                 </div>
@@ -201,17 +201,17 @@ export default function Header() {
                     <Link
                       to="/payments"
                       onClick={() => setShowNotifications(false)}
-                      className="block p-3 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/15 border border-emerald-500/30 transition"
+                      className="block p-3 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 hover:bg-emerald-100/70 dark:hover:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-500/30 transition"
                     >
                       <div className="flex items-start gap-2.5">
                         <span className="text-base flex-shrink-0 mt-0.5">💰</span>
                         <div>
-                          <p className="text-xs font-bold text-emerald-300 flex items-center gap-1.5">
+                          <p className="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
                             <span>يوجد {pendingWalletCount} طلب شحن محفظة جديد</span>
-                            <span className="bg-emerald-500 text-slate-950 text-[9px] px-1.5 py-0.2 rounded-full font-black">جديد</span>
+                            <span className="bg-emerald-600 text-white text-[9px] px-1.5 py-0.2 rounded-full font-black">جديد</span>
                           </p>
-                          <p className="text-[11px] text-emerald-400/80 mt-0.5">
-                            انقر لمراجعة الحوالات واعتماد أو تعديل المبالغ لحسابات المرضى فوراً.
+                          <p className="text-[11px] text-emerald-700 dark:text-emerald-400/90 mt-0.5 font-medium">
+                            انقر لمراجعة الحوالات واعتماد المبالغ لحسابات المرضى فوراً.
                           </p>
                         </div>
                       </div>
@@ -223,15 +223,15 @@ export default function Header() {
                     <Link
                       to="/requests"
                       onClick={() => setShowNotifications(false)}
-                      className="block p-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/30 transition"
+                      className="block p-3 rounded-xl bg-amber-50 dark:bg-amber-500/10 hover:bg-amber-100/70 dark:hover:bg-amber-500/20 border border-amber-200 dark:border-amber-500/30 transition"
                     >
                       <div className="flex items-start gap-2.5">
-                        <ShieldAlert className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                        <ShieldAlert className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="text-xs font-bold text-amber-300">
+                          <p className="text-xs font-extrabold text-amber-800 dark:text-amber-300">
                             يوجد {pendingCount} طلب تسجيل بانتظار الاعتماد
                           </p>
-                          <p className="text-[11px] text-amber-400/80 mt-0.5">
+                          <p className="text-[11px] text-amber-700 dark:text-amber-400/90 mt-0.5 font-medium">
                             انقر لمراجعة واعتماد حسابات الأطباء والمرضى الجدد فوراً.
                           </p>
                         </div>
@@ -240,25 +240,25 @@ export default function Header() {
                   )}
 
                   {pendingCount === 0 && pendingWalletCount === 0 && (
-                    <div className="py-6 text-center text-slate-400">
-                      <Bell className="w-8 h-8 mx-auto mb-2 text-slate-500" />
-                      <p className="text-xs font-semibold text-slate-300">لا توجد تنبيهات عاجلة حالياً</p>
+                    <div className="py-6 text-center text-slate-500 dark:text-slate-400">
+                      <Bell className="w-8 h-8 mx-auto mb-2 text-slate-400 dark:text-slate-600" />
+                      <p className="text-xs font-bold text-slate-800 dark:text-slate-200">لا توجد تنبيهات عاجلة حالياً</p>
                       <p className="text-[11px] text-slate-500 mt-1">كافة الطلبات والعمليات مراجعة بالكامل</p>
                     </div>
                   )}
                 </div>
 
-                <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
                   <Link
                     to="/requests"
                     onClick={() => setShowNotifications(false)}
-                    className="text-teal-400 font-bold hover:underline"
+                    className="text-teal-700 dark:text-teal-400 font-extrabold hover:underline"
                   >
                     عرض صفحة الطلبات الكاملة ←
                   </Link>
                   <button
                     onClick={() => setShowNotifications(false)}
-                    className="text-slate-400 hover:text-slate-200"
+                    className="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 font-bold cursor-pointer"
                   >
                     إغلاق
                   </button>
@@ -268,18 +268,18 @@ export default function Header() {
           </div>
 
           {/* المستخدم الحالي */}
-          <div className="flex items-center gap-2.5 pr-2.5 border-r border-slate-800">
+          <div className="flex items-center gap-2.5 pr-2.5 border-r border-slate-200 dark:border-slate-800">
             <UserAvatar
               src={(user as any)?.avatar_url}
               name={user?.full_name || 'مدير المنصة'}
-              className="w-8 h-8"
+              className="w-8.5 h-8.5 ring-2 ring-teal-500/20"
               iconClassName="w-4 h-4"
             />
             <div className="hidden sm:block text-right">
-              <p className="text-xs font-bold text-white leading-tight">
+              <p className="text-[12.5px] font-extrabold text-slate-900 dark:text-white leading-tight">
                 {user?.full_name || 'مدير المنصة'}
               </p>
-              <p className="text-[10px] font-semibold text-teal-400">مسؤول النظام الرئيسي</p>
+              <p className="text-[10px] font-bold text-teal-700 dark:text-teal-400">مسؤول النظام الرئيسي</p>
             </div>
           </div>
         </div>

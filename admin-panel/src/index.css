@@ -26,7 +26,7 @@
   }
 
   html.dark body {
-    background-color: #0B1120;
+    background-color: #070D18;
     color: #F8FAFC;
   }
 }
@@ -54,11 +54,11 @@ html.dark ::-webkit-scrollbar-thumb {
    Executive Balanced Sizing & Natural Proportions
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Balanced Cards */
+/* Balanced Executive Cards */
 main .bg-white {
   background-color: #FFFFFF !important;
   border: 1px solid #E2E8F0 !important;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
   border-radius: 14px !important;
   color: #0F172A !important;
 }
@@ -66,7 +66,7 @@ main .bg-white {
 html.dark main .bg-white {
   background-color: #0F172A !important;
   border: 1px solid #1E293B !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
   color: #F8FAFC !important;
 }
 
@@ -81,7 +81,8 @@ main select {
   height: 38px !important;
   min-height: 38px !important;
   padding: 6px 12px !important;
-  font-size: 0.875rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
   background-color: #FFFFFF !important;
   border: 1px solid #CBD5E1 !important;
   border-radius: 10px !important;
@@ -104,11 +105,13 @@ html.dark main select {
 main input:focus,
 main select:focus {
   border-color: #0D9488 !important;
-  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.2) !important;
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.22) !important;
   outline: none !important;
 }
 
-/* Balanced Table Dimensions (Clean & Natural) */
+/* ═══════════════════════════════════════════════════════════════════
+   Executive High-Contrast Tables
+   ═══════════════════════════════════════════════════════════════════ */
 main table {
   width: 100% !important;
   border-collapse: separate !important;
@@ -116,32 +119,34 @@ main table {
 }
 
 main table thead th {
-  background-color: #F8FAFC !important;
-  color: #475569 !important;
-  font-size: 0.775rem !important;
-  font-weight: 700 !important;
-  padding: 10px 14px !important;
-  border-bottom: 1px solid #E2E8F0 !important;
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+  font-size: 0.8rem !important;
+  font-weight: 800 !important;
+  padding: 11px 14px !important;
+  border-bottom: 2px solid #E2E8F0 !important;
   white-space: nowrap !important;
+  letter-spacing: -0.01em !important;
 }
 
 html.dark main table thead th {
   background-color: #070D18 !important;
-  color: #94A3B8 !important;
-  border-bottom: 1px solid #1E293B !important;
+  color: #F8FAFC !important;
+  border-bottom: 2px solid #1E293B !important;
 }
 
 main table tbody td {
   padding: 10px 14px !important;
   font-size: 0.85rem !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   color: #1E293B !important;
   border-bottom: 1px solid #F1F5F9 !important;
   vertical-align: middle !important;
+  transition: background-color 0.12s ease-in-out !important;
 }
 
 html.dark main table tbody td {
-  color: #E2E8F0 !important;
+  color: #F1F5F9 !important;
   border-bottom: 1px solid #1E293B !important;
 }
 
@@ -150,101 +155,124 @@ main table tbody tr:hover td {
 }
 
 html.dark main table tbody tr:hover td {
-  background-color: #1E293B !important;
+  background-color: #1E293B/60 !important;
+}
+
+/* Compact Table Action Chips */
+main table td button,
+main table td a.inline-flex,
+main table td a.flex {
+  padding: 4px 10px !important;
+  font-size: 0.775rem !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  transition: all 0.15s ease-in-out !important;
 }
 
 /* Natural Button Sizes */
 main button,
 main a.inline-flex {
   font-size: 0.825rem !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
-/* Clear, Neat Badges */
+/* ═══════════════════════════════════════════════════════════════════
+   Luxury Semantic Status Badges (Pills)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Green / Emerald: مكتمل، معتمد، مدفوع */
 main .bg-green-100,
 main .bg-emerald-100,
 main .bg-green-50,
 main .bg-emerald-50 {
   background-color: #ECFDF5 !important;
-  color: #047857 !important;
+  color: #065F46 !important;
   border: 1px solid #A7F3D0 !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   font-size: 0.75rem !important;
-  padding: 3px 8px !important;
-  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
 }
 
 html.dark main .bg-green-100,
 html.dark main .bg-emerald-100,
 html.dark main .bg-green-50,
 html.dark main .bg-emerald-50 {
-  background-color: rgba(16, 185, 129, 0.15) !important;
+  background-color: rgba(16, 185, 129, 0.18) !important;
   color: #34D399 !important;
-  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
 }
 
+/* Amber / Yellow: قيد الانتظار، مراجعة */
 main .bg-amber-100,
 main .bg-yellow-100,
 main .bg-amber-50,
 main .bg-yellow-50 {
   background-color: #FFFBEB !important;
-  color: #B45309 !important;
+  color: #92400E !important;
   border: 1px solid #FDE68A !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   font-size: 0.75rem !important;
-  padding: 3px 8px !important;
-  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
 }
 
 html.dark main .bg-amber-100,
 html.dark main .bg-yellow-100,
 html.dark main .bg-amber-50,
 html.dark main .bg-yellow-50 {
-  background-color: rgba(245, 158, 11, 0.15) !important;
+  background-color: rgba(245, 158, 11, 0.18) !important;
   color: #FBBF24 !important;
-  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
 }
 
+/* Red / Rose: ملغي، مرفوض، غير مدفوع */
 main .bg-red-100,
 main .bg-rose-100,
 main .bg-red-50,
 main .bg-rose-50 {
   background-color: #FEF2F2 !important;
-  color: #B91C1C !important;
+  color: #991B1B !important;
   border: 1px solid #FECACA !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   font-size: 0.75rem !important;
-  padding: 3px 8px !important;
-  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
 }
 
 html.dark main .bg-red-100,
 html.dark main .bg-rose-100,
 html.dark main .bg-red-50,
 html.dark main .bg-rose-50 {
-  background-color: rgba(239, 68, 68, 0.15) !important;
+  background-color: rgba(239, 68, 68, 0.18) !important;
   color: #F87171 !important;
-  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
 }
 
+/* Purple: صلاحيات، متميز */
 main .bg-purple-100,
 main .bg-purple-50 {
   background-color: #FAF5FF !important;
-  color: #6D28D9 !important;
+  color: #581C87 !important;
   border: 1px solid #E9D5FF !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   font-size: 0.75rem !important;
-  padding: 3px 8px !important;
-  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
 }
 
 html.dark main .bg-purple-100,
 html.dark main .bg-purple-50 {
-  background-color: rgba(168, 85, 247, 0.15) !important;
+  background-color: rgba(168, 85, 247, 0.18) !important;
   color: #C084FC !important;
-  border: 1px solid rgba(168, 85, 247, 0.35) !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
 }
 
+/* Teal / Blue: مؤكد، نشط */
 main .bg-teal-100,
 main .bg-teal-50,
 main .bg-blue-100,
@@ -252,17 +280,37 @@ main .bg-blue-50 {
   background-color: #F0FDFA !important;
   color: #0F766E !important;
   border: 1px solid #CCFBF1 !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   font-size: 0.75rem !important;
-  padding: 3px 8px !important;
-  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
 }
 
 html.dark main .bg-teal-100,
 html.dark main .bg-teal-50,
 html.dark main .bg-blue-100,
 html.dark main .bg-blue-50 {
-  background-color: rgba(20, 184, 166, 0.15) !important;
+  background-color: rgba(20, 184, 166, 0.18) !important;
   color: #2DD4BF !important;
-  border: 1px solid rgba(20, 184, 166, 0.35) !important;
+  border: 1px solid rgba(20, 184, 166, 0.4) !important;
+}
+
+/* Gray / Slate: معلق، لم يحضر */
+main .bg-gray-100,
+main .bg-slate-100 {
+  background-color: #F1F5F9 !important;
+  color: #334155 !important;
+  border: 1px solid #CBD5E1 !important;
+  font-weight: 800 !important;
+  font-size: 0.75rem !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+}
+
+html.dark main .bg-gray-100,
+html.dark main .bg-slate-100 {
+  background-color: #1E293B !important;
+  color: #94A3B8 !important;
+  border: 1px solid #334155 !important;
 }
