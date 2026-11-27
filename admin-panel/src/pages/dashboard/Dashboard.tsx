@@ -434,12 +434,43 @@ export default function Dashboard() {
         </h3>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
-          <QuickActionPro to="/requests" icon={CheckCircle} label="اعتماد الطلبات" badge={`${stats.totalPendingRequests}`} />
-          <QuickActionPro to="/doctors/add" icon={Stethoscope} label="إضافة طبيب" />
-          <QuickActionPro to="/clinics" icon={Building2} label="العيادات" />
-          <QuickActionPro to="/periods" icon={CalendarDays} label="الفترات" />
-          <QuickActionPro to="/offers/add" icon={Tag} label="إضافة عرض" />
-          <QuickActionPro to="/recovery" icon={Users} label="استعادة الحسابات" />
+          <QuickActionPro
+            to="/requests"
+            icon={CheckCircle}
+            label="اعتماد الطلبات"
+            badge={`${stats.totalPendingRequests}`}
+            iconBg="bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/20"
+          />
+          <QuickActionPro
+            to="/doctors/add"
+            icon={Stethoscope}
+            label="إضافة طبيب"
+            iconBg="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+          />
+          <QuickActionPro
+            to="/clinics"
+            icon={Building2}
+            label="العيادات"
+            iconBg="bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/20"
+          />
+          <QuickActionPro
+            to="/periods"
+            icon={CalendarDays}
+            label="الفترات"
+            iconBg="bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/20"
+          />
+          <QuickActionPro
+            to="/offers/add"
+            icon={Tag}
+            label="إضافة عرض"
+            iconBg="bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/20"
+          />
+          <QuickActionPro
+            to="/recovery"
+            icon={Users}
+            label="استعادة الحسابات"
+            iconBg="bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/20"
+          />
         </div>
       </div>
 
@@ -566,33 +597,33 @@ function StatCardPro({
   to: string;
 }) {
   const badgeColors = {
-    success: 'bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/30',
-    warning: 'bg-amber-50 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-500/30',
-    danger: 'bg-rose-50 dark:bg-rose-500/15 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-500/30',
-    info: 'bg-teal-50 dark:bg-teal-500/15 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-500/30',
+    success: 'bg-emerald-50 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-300/80 dark:border-emerald-500/30',
+    warning: 'bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-300/80 dark:border-amber-500/30',
+    danger: 'bg-rose-50 dark:bg-rose-500/15 text-rose-800 dark:text-rose-300 border-rose-300/80 dark:border-rose-500/30',
+    info: 'bg-teal-50 dark:bg-teal-500/15 text-teal-800 dark:text-teal-300 border-teal-300/80 dark:border-teal-500/30',
   };
 
   return (
     <Link
       to={to}
-      className="bg-white dark:bg-slate-900 rounded-xl p-3.5 shadow-xs border border-slate-200 dark:border-slate-800 hover:border-teal-500 dark:hover:border-teal-500/60 transition flex flex-col justify-between group"
+      className="bg-white dark:bg-slate-900 rounded-xl p-3.5 shadow-xs border border-slate-200/90 dark:border-slate-800 hover:border-teal-500/70 hover:shadow-md transition-all duration-200 flex flex-col justify-between group"
     >
       <div>
         <div className="flex items-center justify-between mb-2">
-          <div className={`w-8 h-8 rounded-lg bg-gradient-to-tr ${gradient} text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition`}>
-            <Icon className="w-4 h-4" />
+          <div className={`w-8.5 h-8.5 rounded-lg bg-gradient-to-tr ${gradient} text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform`}>
+            <Icon className="w-4.5 h-4.5 stroke-[2.2]" />
           </div>
-          <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md border ${badgeColors[badgeType]}`}>
+          <span className={`text-[10.5px] font-extrabold px-2.5 py-0.5 rounded-full border ${badgeColors[badgeType]}`}>
             {badge}
           </span>
         </div>
-        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">{title}</p>
-        <p className="text-xl font-bold text-slate-900 dark:text-white mt-0.5 truncate">{value}</p>
+        <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{title}</p>
+        <p className="text-2xl font-black text-slate-900 dark:text-white mt-0.5 truncate tracking-tight">{value}</p>
       </div>
 
-      <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 font-medium">
+      <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 font-semibold">
         <span>{subtitle}</span>
-        <span className="text-teal-600 dark:text-teal-400 font-bold group-hover:translate-x-[-2px] transition text-xs">←</span>
+        <span className="text-teal-600 dark:text-teal-400 font-bold group-hover:translate-x-[-3px] transition-transform text-xs">←</span>
       </div>
     </Link>
   );
@@ -603,27 +634,28 @@ function QuickActionPro({
   icon: Icon,
   label,
   badge,
+  iconBg,
 }: {
   to: string;
   icon: any;
   label: string;
   badge?: string;
-  color?: string;
+  iconBg?: string;
 }) {
   return (
     <Link
       to={to}
-      className="p-3 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 rounded-xl transition flex flex-col items-center justify-center text-center gap-1.5 group relative shadow-xs"
+      className="p-3 bg-white dark:bg-slate-900 hover:bg-slate-50/80 dark:hover:bg-slate-800/80 border border-slate-200/90 dark:border-slate-800 rounded-xl transition-all duration-150 flex flex-col items-center justify-center text-center gap-1.5 group relative shadow-2xs hover:shadow-xs hover:border-teal-500/40"
     >
       {badge && Number(badge) > 0 && (
-        <span className="absolute top-1.5 left-1.5 px-1.5 py-0.2 text-[10px] font-bold bg-rose-500 text-white rounded-full">
+        <span className="absolute top-1.5 left-1.5 px-1.5 py-0.2 text-[10px] font-black bg-rose-600 text-white rounded-full shadow-xs animate-pulse">
           {badge}
         </span>
       )}
-      <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-slate-800 text-teal-700 dark:text-teal-300 flex items-center justify-center group-hover:scale-105 transition">
-        <Icon className="w-4 h-4" />
+      <div className={`w-8.5 h-8.5 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform ${iconBg || 'bg-teal-50 dark:bg-slate-800 text-teal-700 dark:text-teal-300'}`}>
+        <Icon className="w-4.5 h-4.5 stroke-[2.2]" />
       </div>
-      <span className="text-xs font-semibold truncate max-w-full text-slate-700 dark:text-slate-200">{label}</span>
+      <span className="text-xs font-bold truncate max-w-full text-slate-800 dark:text-slate-200">{label}</span>
     </Link>
   );
 }
