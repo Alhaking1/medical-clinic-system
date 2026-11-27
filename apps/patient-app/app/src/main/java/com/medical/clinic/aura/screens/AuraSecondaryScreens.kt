@@ -334,7 +334,7 @@ private fun NextAppointmentPulse(appointment: AuraAppointment, modifier: Modifie
                         .fillMaxWidth()
                         .height(4.dp)
                         .clip(CircleShape)
-                        .background(Color.White.copy(alpha = 0.07f))
+                        .background(Color(0xFFE2E8F0))
                 ) {
                     Box(
                         Modifier
@@ -503,6 +503,7 @@ private fun AppointmentTicketDialog(appointment: AuraAppointment, onDismiss: () 
                         .size(190.dp)
                         .clip(RoundedCornerShape(18.dp))
                         .background(Color.White)
+                        .border(1.dp, Color(0xFFE2E8F0), RoundedCornerShape(18.dp))
                         .padding(14.dp)
                 ) {
                     QrArt(seed = appointment.id)
