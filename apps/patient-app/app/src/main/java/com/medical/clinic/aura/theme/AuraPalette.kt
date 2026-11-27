@@ -4,38 +4,37 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 /**
- * 👑 THE HEALING CANVAS COLOR PALETTE (Bespoke & Calming)
- * - Background: "Silk White" (#FDFBF7) — A warm, creamy white that feels like premium paper, reducing eye strain.
- * - Primary Brand: "Serene Emerald" (#059669) — A deep, calming medical green.
- * - Secondary Accent: "Soft Apricot" (#FFF7ED) — Used for cards related to appointments (warmth).
- * - Text: "Rich Charcoal" (#1F2937) for crisp readability.
- * - No Neon. No Dark Mode. No Glassmorphism. Just pure, elegant surfaces.
+ * 👑 THE ROYAL MEDICAL COLOR PALETTE (Ultra-Crisp & Calming)
+ * - Background: "Pure Ice White" (#F8FAFC) — A pristine, clean clinical white that eliminates yellowing.
+ * - Primary Brand: "Medical Deep Teal" (#0D9488) & "Serene Emerald" (#059669) — Luxury clinical authority.
+ * - Secondary Accent: "Soft Apricot Gold" (#FFF7ED) — Warmth for appointments and VIP statuses.
+ * - Text: "Deep Obsidian Slate" (#0F172A) for razor-sharp Arabic typography.
  */
 
-val SilkWhite = Color(0xFFFDFBF7)
-val SereneEmerald = Color(0xFF059669)
-val SereneEmeraldDark = Color(0xFF047857)
-val SereneEmeraldLight = Color(0xFFECFDF5)
+val SilkWhite = Color(0xFFF8FAFC)
+val SereneEmerald = Color(0xFF0D9488)
+val SereneEmeraldDark = Color(0xFF0F766E)
+val SereneEmeraldLight = Color(0xFFF0FDFA)
 val SoftApricot = Color(0xFFFFF7ED)
 val SoftApricotBorder = Color(0xFFFFEDD5)
-val RichCharcoal = Color(0xFF1F2937)
-val MutedCharcoal = Color(0xFF6B7280)
-val SoftGray = Color(0xFF9CA3AF)
-val CanvasBorder = Color(0xFFE5E7EB)
+val RichCharcoal = Color(0xFF0F172A)
+val MutedCharcoal = Color(0xFF334155)
+val SoftGray = Color(0xFF64748B)
+val CanvasBorder = Color(0xFFE2E8F0)
 val CardWhite = Color(0xFFFFFFFF)
 
 // Pastel bubble backgrounds for specialties:
-val PastelHeart = Color(0xFFE0F2FE) // Soft Blue
+val PastelHeart = Color(0xFFF0F9FF) // Soft Sky Blue
 val PastelHeartIcon = Color(0xFF0284C7)
-val PastelDental = Color(0xFFFCE7F3) // Soft Pink
-val PastelDentalIcon = Color(0xFFDB2777)
-val PastelOrthopedic = Color(0xFFF3E8FF) // Soft Lavender
+val PastelDental = Color(0xFFFFF1F2) // Soft Rose
+val PastelDentalIcon = Color(0xFFE11D48)
+val PastelOrthopedic = Color(0xFFFAF5FF) // Soft Lavender
 val PastelOrthopedicIcon = Color(0xFF7C3AED)
-val PastelPediatrics = Color(0xFFFEF3C7) // Soft Amber
+val PastelPediatrics = Color(0xFFFFFBEB) // Soft Amber
 val PastelPediatricsIcon = Color(0xFFD97706)
-val PastelGeneral = Color(0xFFECFDF5) // Soft Mint
-val PastelGeneralIcon = Color(0xFF059669)
-val PastelEyes = Color(0xFFE0E7FF) // Soft Indigo
+val PastelGeneral = Color(0xFFF0FDFA) // Soft Mint
+val PastelGeneralIcon = Color(0xFF0D9488)
+val PastelEyes = Color(0xFFEEF2FF) // Soft Indigo
 val PastelEyesIcon = Color(0xFF4F46E5)
 
 data class AuraPalette(
@@ -52,7 +51,7 @@ data class AuraPalette(
     val textSecondary: Color = MutedCharcoal,
     val textMuted: Color = SoftGray,
     val danger: Color = Color(0xFFDC2626),
-    val success: Color = SereneEmerald,
+    val success: Color = Color(0xFF059669),
     val gold: Color = Color(0xFFD97706),
     val glass: Color = CardWhite,
     val isNight: Boolean = false
