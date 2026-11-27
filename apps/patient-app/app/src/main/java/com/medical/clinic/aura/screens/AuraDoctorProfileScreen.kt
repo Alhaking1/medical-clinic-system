@@ -253,21 +253,17 @@ fun AuraDoctorProfileScreen(
                         Spacer(Modifier.height(10.dp))
                         LazyRow(horizontalArrangement = Arrangement.spacedBy(9.dp)) {
                             items(listOf("٤:٣٠ م", "٥:٠٠ م", "٥:٣٠ م", "٦:١٥ م", "٧:٠٠ م", "٨:٣٠ م")) { slot ->
+                                val isFirst = slot == "٤:٣٠ م"
                                 Box(
                                     Modifier
                                         .clip(RoundedCornerShape(14.dp))
                                         .background(
-                                            if (slot == "٤:٣٠ م") {
-                                                Brush.horizontalGradient(listOf(palette.teal, palette.violet))
-                                            } else {
-                                                Brush.horizontalGradient(
-                                                    listOf(Color.White.copy(alpha = 0.08f), Color.White.copy(alpha = 0.03f))
-                                                )
-                                            }
+                                            if (isFirst) palette.teal
+                                            else Color.White
                                         )
                                         .border(
                                             1.dp,
-                                            if (slot == "٤:٣٠ م") Color.Transparent else Color.White.copy(alpha = 0.12f),
+                                            if (isFirst) palette.teal else Color(0xFFE2E8F0),
                                             RoundedCornerShape(14.dp)
                                         )
                                         .clickable { showBooking = true }
@@ -275,7 +271,7 @@ fun AuraDoctorProfileScreen(
                                 ) {
                                     Text(
                                         slot,
-                                        color = if (slot == "٤:٣٠ م") Color(0xFF04120F) else palette.textSecondary,
+                                        color = if (isFirst) Color.White else palette.textPrimary,
                                         fontFamily = Cairo,
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.Bold
@@ -353,11 +349,16 @@ fun AuraDoctorProfileScreen(
                 .fillMaxWidth()
                 .background(
                     Brush.verticalGradient(
-                        listOf(Color.Transparent, Color(0xEE070A12), Color(0xFF070A12))
+                        listOf(Color.Transparent, Color.White.copy(alpha = 0.95f), Color.White)
                     )
                 )
+                .border(
+                    width = 1.dp,
+                    color = Color(0xFFE2E8F0),
+                    shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
+                )
                 .navigationBarsPadding()
-                .padding(horizontal = 20.dp, vertical = 12.dp)
+                .padding(horizontal = 20.dp, vertical = 14.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column {
@@ -369,10 +370,11 @@ fun AuraDoctorProfileScreen(
                         fontSize = 20.sp
                     )
                     Text(
-                        "تشمل الاستشارة والتقرير",
-                        color = palette.textMuted,
+                        "تشمل الاستشارة والتقرير الطبي",
+                        color = palette.textSecondary,
                         fontFamily = Cairo,
-                        fontSize = 9.sp
+                        fontSize = 9.5.sp,
+                        fontWeight = FontWeight.SemiBold
                     )
                 }
                 Spacer(Modifier.weight(1f))
@@ -410,14 +412,14 @@ private fun ProfileStat(value: String, label: String, color: Color, modifier: Mo
     Column(
         modifier
             .clip(RoundedCornerShape(16.dp))
-            .background(Color.White.copy(alpha = 0.05f))
-            .border(1.dp, Color.White.copy(alpha = 0.10f), RoundedCornerShape(16.dp))
+            .background(Color.White)
+            .border(1.dp, Color(0xFFE2E8F0), RoundedCornerShape(16.dp))
             .padding(vertical = 12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(value, color = color, fontFamily = Cairo, fontWeight = FontWeight.Black, fontSize = 16.sp)
         Spacer(Modifier.height(2.dp))
-        Text(label, color = palette.textMuted, fontFamily = Cairo, fontSize = 8.5.sp)
+        Text(label, color = palette.textSecondary, fontFamily = Cairo, fontSize = 9.sp, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -519,18 +521,23 @@ private fun BookingDialog(
                             .weight(1f)
                             .clip(RoundedCornerShape(12.dp))
                             .background(
-                                if (active) Brush.horizontalGradient(listOf(palette.teal, palette.violet))
-                                else Brush.horizontalGradient(listOf(Color.White.copy(alpha = 0.07f), Color.White.copy(alpha = 0.03f)))
+                                if (active) palette.teal
+                                else Color(0xFFF8FAFC)
+                            )
+                            .border(
+                                1.dp,
+                                if (active) palette.teal else Color(0xFFE2E8F0),
+                                RoundedCornerShape(12.dp)
                             )
                             .clickable { day = item }
-                            .padding(vertical = 9.dp),
+                            .padding(vertical = 10.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
                             item,
-                            color = if (active) Color(0xFF04120F) else palette.textSecondary,
+                            color = if (active) Color.White else palette.textPrimary,
                             fontFamily = Cairo,
-                            fontSize = 9.5.sp,
+                            fontSize = 10.sp,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center
                         )
@@ -550,12 +557,12 @@ private fun BookingDialog(
                                     .weight(1f)
                                     .clip(RoundedCornerShape(12.dp))
                                     .background(
-                                        if (active) palette.teal.copy(alpha = 0.22f)
-                                        else Color.White.copy(alpha = 0.04f)
+                                        if (active) palette.teal.copy(alpha = 0.14f)
+                                        else Color(0xFFF8FAFC)
                                     )
                                     .border(
                                         1.dp,
-                                        if (active) palette.teal else Color.White.copy(alpha = 0.10f),
+                                        if (active) palette.teal else Color(0xFFE2E8F0),
                                         RoundedCornerShape(12.dp)
                                     )
                                     .clickable { time = item }
@@ -564,10 +571,10 @@ private fun BookingDialog(
                             ) {
                                 Text(
                                     item,
-                                    color = if (active) palette.teal else palette.textSecondary,
+                                    color = if (active) palette.teal else palette.textPrimary,
                                     fontFamily = Cairo,
-                                    fontSize = 10.5.sp,
-                                    fontWeight = FontWeight.SemiBold
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold
                                 )
                             }
                         }

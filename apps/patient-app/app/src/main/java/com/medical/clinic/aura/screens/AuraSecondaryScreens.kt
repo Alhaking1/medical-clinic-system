@@ -232,8 +232,8 @@ private fun TabSwitcher(tabs: List<String>, selected: Int, onSelect: (Int) -> Un
         Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(18.dp))
-            .background(Color.White.copy(alpha = 0.05f))
-            .border(1.dp, Color.White.copy(alpha = 0.10f), RoundedCornerShape(18.dp))
+            .background(Color(0xFFF1F5F9))
+            .border(1.dp, Color(0xFFE2E8F0), RoundedCornerShape(18.dp))
             .padding(4.dp)
     ) {
         tabs.forEachIndexed { index, title ->
@@ -243,8 +243,8 @@ private fun TabSwitcher(tabs: List<String>, selected: Int, onSelect: (Int) -> Un
                     .weight(1f)
                     .clip(RoundedCornerShape(14.dp))
                     .background(
-                        if (active) Brush.horizontalGradient(listOf(palette.teal, palette.violet))
-                        else Brush.horizontalGradient(listOf(Color.Transparent, Color.Transparent))
+                        if (active) palette.teal
+                        else Color.Transparent
                     )
                     .clickable { onSelect(index) }
                     .padding(vertical = 10.dp),
@@ -252,7 +252,7 @@ private fun TabSwitcher(tabs: List<String>, selected: Int, onSelect: (Int) -> Un
             ) {
                 Text(
                     title,
-                    color = if (active) Color(0xFF04120F) else palette.textSecondary,
+                    color = if (active) Color.White else palette.textSecondary,
                     fontFamily = Cairo,
                     fontSize = 11.sp,
                     fontWeight = if (active) FontWeight.Bold else FontWeight.Medium
@@ -899,6 +899,14 @@ fun AuraProfileScreen(
             }
 
             item {
+                DigitalHealthCard(
+                    name = name,
+                    phone = phone,
+                    modifier = Modifier.padding(horizontal = 20.dp)
+                )
+            }
+
+            item {
                 Row(
                     Modifier
                         .fillMaxWidth()
@@ -1080,13 +1088,13 @@ private fun MiniStat(value: String, label: String, color: Color, modifier: Modif
     Column(
         modifier
             .clip(RoundedCornerShape(16.dp))
-            .background(Color.White.copy(alpha = 0.05f))
-            .border(1.dp, Color.White.copy(alpha = 0.09f), RoundedCornerShape(16.dp))
+            .background(Color.White)
+            .border(1.dp, Color(0xFFE2E8F0), RoundedCornerShape(16.dp))
             .padding(vertical = 12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(value, color = color, fontFamily = Cairo, fontWeight = FontWeight.Black, fontSize = 17.sp)
-        Text(label, color = palette.textMuted, fontFamily = Cairo, fontSize = 8.5.sp)
+        Text(label, color = palette.textSecondary, fontFamily = Cairo, fontSize = 9.sp, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -1132,6 +1140,121 @@ private fun DividerLine() {
             .fillMaxWidth()
             .padding(horizontal = 12.dp)
             .height(1.dp)
-            .background(Color.White.copy(alpha = 0.05f))
+            .background(Color(0xFFE2E8F0))
     )
+}
+
+@Composable
+private fun DigitalHealthCard(name: String, phone: String?, modifier: Modifier = Modifier) {
+    val palette = LocalAuraPalette.current
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(22.dp))
+            .background(
+                Brush.linearGradient(
+                    listOf(
+                        Color(0xFF0F766E),
+                        Color(0xFF0D9488),
+                        Color(0xFF047857)
+                    )
+                )
+            )
+            .border(
+                1.dp,
+                Brush.linearGradient(
+                    listOf(
+                        Color.White.copy(alpha = 0.35f),
+                        Color.Transparent,
+                        Color.White.copy(alpha = 0.15f)
+                    )
+                ),
+                RoundedCornerShape(22.dp)
+            )
+            .padding(20.dp)
+    ) {
+        Column {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        Modifier
+                            .size(34.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(Color.White.copy(alpha = 0.2f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        AuraIcon(AuraGlyph.Shield, null, size = 18.dp, tint = Color.White)
+                    }
+                    Spacer(Modifier.width(10.dp))
+                    Column {
+                        Text(
+                            "طبيبك · الهوية الطبية الرقمية",
+                            color = Color.White,
+                            fontFamily = Cairo,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp
+                        )
+                        Text(
+                            "HEALTH ID CARD",
+                            color = Color.White.copy(alpha = 0.75f),
+                            fontFamily = Cairo,
+                            fontSize = 8.5.sp,
+                            letterSpacing = 1.sp
+                        )
+                    }
+                }
+                Box(
+                    Modifier
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(Color.White.copy(alpha = 0.2f))
+                        .padding(horizontal = 9.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        "فصيلة +O",
+                        color = Color.White,
+                        fontFamily = Cairo,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 10.sp
+                    )
+                }
+            }
+
+            Spacer(Modifier.height(20.dp))
+
+            Text(
+                name,
+                color = Color.White,
+                fontFamily = Cairo,
+                fontWeight = FontWeight.Black,
+                fontSize = 18.sp
+            )
+
+            Spacer(Modifier.height(4.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    phone ?: "+967 77X XXX XXXX",
+                    color = Color.White.copy(alpha = 0.85f),
+                    fontFamily = Cairo,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 11.sp
+                )
+                Text(
+                    "رقم الملف: #MED-8842",
+                    color = Color.White.copy(alpha = 0.85f),
+                    fontFamily = Cairo,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 10.sp
+                )
+            }
+        }
+    }
 }

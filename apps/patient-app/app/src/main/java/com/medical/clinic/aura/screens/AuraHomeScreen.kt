@@ -1305,7 +1305,7 @@ private fun GpsVerificationDialog(
                     .clip(RoundedCornerShape(18.dp))
                     .background(
                         Brush.radialGradient(
-                            listOf(palette.emerald.copy(alpha = 0.28f), Color(0xFF070A12))
+                            listOf(palette.emerald.copy(alpha = 0.15f), Color(0xFFF1F5F9))
                         )
                     ),
                 contentAlignment = Alignment.Center
